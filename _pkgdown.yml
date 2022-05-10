@@ -22,5 +22,7 @@ navbar:
     - text: "versions"
       href: news/index.html
   right:
+    - icon: "fab fa-twitter fa-lg"
+      href: https://twitter.com/gcfrench
     - icon: "fab fa-github fa-lg"
       href: https://github.com/gcfrench/shinystore
