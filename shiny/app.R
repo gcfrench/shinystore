@@ -51,28 +51,10 @@ reactlog_enable()
 Sys.setenv(R_CONFIG_ACTIVE = "testing")
 config <- config::get()
 
-### Shiny cheatsheet https://shiny.rstudio.com/images/shiny-cheatsheet.pdf
-### Shiny community: https://community.rstudio.com/c/shiny/8
-### Awesome Shiny Extensions https://github.com/nanxstats/awesome-shiny-extensions
-
-# Themes
-## https://rstudio.github.io/bslib; bslib::bs_theme_preview()
-## https://bootswatch.com/
-
-# Layouts
-## dashboardPage()
-## dashboardHeader()
-## dashboardSidebar(fluidRow(column())
-## dashboardBody(fluidRow(column())
-## tabs: tabsetPanel | navlistPanel | navbarPage (tabPanel(fluidRow(column())))
-### Shinydashboard: http://rstudio.github.io/shinydashboard/index.html
-### Shiny layout: https://shiny.rstudio.com/articles/layout-guide.html
 
 # Upload data ------------------------------------------------------------------
 ui_page_1 <- sidebarLayout(
   sidebarPanel(width = 3,
-
-               ### https://shiny.rstudio.com/articles/upload.html
                fileInput("penguins_upload", "Upload penguin data", accept = ".csv")
   ),
   mainPanel()
@@ -174,12 +156,7 @@ server <- function(input, output, session) {
   ## Reactive expressions
   penguins_data <- reactive({
 
-    # Only proceed if penguin data is uploaded
     req(input$penguins_upload)
-
-    # upload data
-    ### https://shiny.rstudio.com/reference/shiny/latest/reactivePoll.html
-    ### https://shiny.rstudio.com/reference/shiny/latest/reactiveFileReader.html
     read_csv(input$penguins_upload$datapath,
              col_types = cols(body_mass_g = col_integer(),
                               flipper_length_mm = col_integer(),

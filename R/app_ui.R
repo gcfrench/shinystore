@@ -1,28 +1,60 @@
+#' @title
 #' The application User-Interface
 #'
+#' @description
+#' The application user-interface separated as pages with the first page containing
+#' the upload module.
+#'
+#' @details
+#'
+#' * [bslib R package](https://rstudio.github.io/bslib) providing tools for
+#' customizing Bootstrap themes.
+#' * [Bootswatch theme](https://bootswatch.com/) Free themes for bootstrap.
+#' * [Shiny layout](https://shiny.rstudio.com/articles/layout-guide.html)
+#' * [shinydashboard](http://rstudio.github.io/shinydashboard/get_started.html)
+#'
 #' @param request Internal parameter for `{shiny}`.
-#'     DO NOT REMOVE.
+#'
 #' @import shiny
-#' @noRd
+#'
+#' @export
 app_ui <- function(request) {
+
+  # first page containing upload module
+  ui_page_1 <- sidebarLayout(
+    sidebarPanel(width = 3,
+                 mod_upload_ui("upload_1")
+    ),
+    mainPanel()
+  )
+
+  # UI layout
   tagList(
-    # Leave this function for adding external resources
     golem_add_external_resources(),
-    # Your application UI logic
     fluidPage(
-      h1("shinystore")
+      h1(""),
+      tabsetPanel(
+        id = "wizard",
+        type = "hidden",
+        tabPanel("page_1",
+                 ui_page_1
+        )
+      )
     )
   )
 }
 
+#' @title
 #' Add external Resources to the Application
 #'
+#' @description
 #' This function is internally used to add external
 #' resources inside the Shiny application.
 #'
 #' @import shiny
 #' @importFrom golem add_resource_path activate_js favicon bundle_resources
-#' @noRd
+#'
+#' @export
 golem_add_external_resources <- function() {
   add_resource_path(
     "www",

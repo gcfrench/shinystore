@@ -34,8 +34,16 @@ request. Note that the entire request path must match the regular
 expression in order for the match to be considered successful.}
 
 \item{...}{arguments to pass to golem_opts.
-See `?golem::get_golem_options` for more details.}
+See \code{?golem::get_golem_options} for more details.}
 }
 \description{
 Run the Shiny Application
+}
+\details{
+\itemize{
+\item \href{https://shiny.rstudio.com/images/shiny-cheatsheet.pdf}{Shiny cheatsheet}
+\item \href{https://community.rstudio.com/c/shiny/8}{Shiny community}
+\item \href{https://github.com/nanxstats/awesome-shiny-extensions}{Awesome Shiny Extensions}
+\item \href{https://shiny.rstudio.com/gallery/}{Shiny gallery}
+}
 }

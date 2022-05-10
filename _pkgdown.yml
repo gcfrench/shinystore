@@ -3,6 +3,19 @@ template:
   bootstrap: 5
   bootswatch: flatly
 
+reference:
+- title: "Upload shiny module"
+  desc: "Shiny module for uploading CSV file"
+  contents:
+  - mod_upload_ui
+  - mod_upload_server
+- title: "Shiny user interface and server"
+  desc: "Shiny application user interface and server"
+  contents:
+  - app_ui
+  - app_server
+  - run_app
+
 navbar:
   left:
     - icon: fa-home fa-lg
