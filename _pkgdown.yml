@@ -9,6 +9,11 @@ reference:
   contents:
   - mod_upload_ui
   - mod_upload_server
+- title: "Filter shiny module"
+  desc: "Shiny module for applying filter to a dataset"
+  contents:
+  - mod_filter_ui
+  - mod_filter_server
 - title: "Shiny user interface and server"
   desc: "Shiny application user interface and server"
   contents:

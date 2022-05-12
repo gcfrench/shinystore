@@ -12,6 +12,9 @@
 #' * [Bootswatch theme](https://bootswatch.com/) Free themes for bootstrap.
 #' * [Shiny layout](https://shiny.rstudio.com/articles/layout-guide.html)
 #' * [shinydashboard](http://rstudio.github.io/shinydashboard/get_started.html)
+#' * [shinywidgets](https://github.com/dreamRs/shinyWidgets)
+#' * [sortable](https://rstudio.github.io/sortable/)
+#' * [colourpicker](https://github.com/daattali/colourpicker)
 #'
 #' @param request Internal parameter for `{shiny}`.
 #'
@@ -23,7 +26,8 @@ app_ui <- function(request) {
   # first page containing upload module
   ui_page_1 <- sidebarLayout(
     sidebarPanel(width = 3,
-                 mod_upload_ui("upload_1")
+                 mod_upload_ui("upload_1", dataset_name = "penguin"),
+                 mod_filter_ui("filter_1", dataset_name = "penguin")
     ),
     mainPanel()
   )

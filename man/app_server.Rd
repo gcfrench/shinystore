@@ -12,8 +12,10 @@ app_server(input, output, session)
 \item{mod_values}{a 'reactiveValues() list storing returned values from server modules,
 containing the following elements
 \itemize{
-\item 'upload_data' uploaded csv file as data frame
-}}
+\item 'upload_data' uploaded csv file as data frame.
+\item 'species_list' list of species in uploaded csv file.
+\item 'year_list' list of years in uploaded csv file.
+}'filter_data' uploaded csv file filtered by species and year list.}
 }
 \description{
 The application server-side

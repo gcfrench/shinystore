@@ -1,13 +1,6 @@
 #' @title
 #' Run the Shiny Application
 #'
-#' @details
-#'
-#' * [Shiny cheatsheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf)
-#' * [Shiny community](https://community.rstudio.com/c/shiny/8)
-#' * [Awesome Shiny Extensions](https://github.com/nanxstats/awesome-shiny-extensions)
-#' * [Shiny gallery](https://shiny.rstudio.com/gallery/)
-#'
 #' @param ... arguments to pass to golem_opts.
 #' See `?golem::get_golem_options` for more details.
 #' @inheritParams shiny::shinyApp

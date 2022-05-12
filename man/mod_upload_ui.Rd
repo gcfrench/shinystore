@@ -4,10 +4,12 @@
 \alias{mod_upload_ui}
 \title{upload UI Function}
 \usage{
-mod_upload_ui(id)
+mod_upload_ui(id, dataset_name)
 }
 \arguments{
 \item{id}{Internal parameter for {shiny}.}
+
+\item{dataset_name}{Name of dataset to upload.}
 }
 \description{
 Shiny module uploading csv file using fileInput control.

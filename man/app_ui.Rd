@@ -20,5 +20,8 @@ customizing Bootstrap themes.
 \item \href{https://bootswatch.com/}{Bootswatch theme} Free themes for bootstrap.
 \item \href{https://shiny.rstudio.com/articles/layout-guide.html}{Shiny layout}
 \item \href{http://rstudio.github.io/shinydashboard/get_started.html}{shinydashboard}
+\item \href{https://github.com/dreamRs/shinyWidgets}{shinywidgets}
+\item \href{https://rstudio.github.io/sortable/}{sortable}
+\item \href{https://github.com/daattali/colourpicker}{colourpicker}
 }
 }

@@ -18,8 +18,6 @@ library(readr)
 ## Add reset button: pg 155
 ## Add bookmark button: pg 180
 ## https://shanghai.hosting.nyu.edu/data/r/case-4-database-management-shiny.html
-## Engineering production grade shiny apps: https://engineering-shiny.org/
-## Golem: https://thinkr-open.github.io/golem/
 
 ### https://shiny.rstudio.com/articles/sanitize-errors.html
 options(shiny.sanitize.errors = TRUE)
@@ -51,7 +49,6 @@ reactlog_enable()
 Sys.setenv(R_CONFIG_ACTIVE = "testing")
 config <- config::get()
 
-
 # Upload data ------------------------------------------------------------------
 ui_page_1 <- sidebarLayout(
   sidebarPanel(width = 3,
@@ -64,13 +61,7 @@ ui_page_1 <- sidebarLayout(
 ui_page_2 <- sidebarLayout(
   sidebarPanel(width = 3,
 
-               ### Dynamic selectInput https://shiny.rstudio.com/articles/selectize.html#server-side-selectize
-               ### shinywidgets https://github.com/dreamRs/shinyWidgets
-               ### colourpicker https://github.com/daattali/colourpicker
-               ### sortable https://rstudio.github.io/sortable
-
                selectInput("species_selected", "Select a penguin species", choices = NULL),
-               ### Using sliders https://shiny.rstudio.com/articles/sliders.html
                numericInput("species_year", "Select year", value = NULL, min = 0, max = 0),
 
                htmlOutput("species_image_source"),
@@ -163,12 +154,7 @@ server <- function(input, output, session) {
                               year = col_integer()))
   })
 
-  # Immediate reactivity ---------------------------------------------------------
-
-  ## Validate input values
-  ### shinyValidate: https://rstudio.github.io/shinyvalidate/
-  ### shinyFeedback: https://github.com/merlinoa/shinyFeedback
-  ### shinyAlert: https://github.com/daattali/shinyalert
+  # Immediate reactivity -------------------------------------------------------
 
   ## initiate validation
   check_input <- InputValidator$new()
@@ -201,7 +187,6 @@ server <- function(input, output, session) {
   })
 
   observeEvent(species_list(), {
-    ### prevent ficker: freezeReactiveValue
     updateSelectInput(inputId = "species_selected", choices = species_list())
   })
 
@@ -214,7 +199,6 @@ server <- function(input, output, session) {
   })
 
   observeEvent(year_list(), {
-    ### prevent flicker: freezeReactiveValue
     updateNumericInput(inputId = "species_year",
                        value = min(year_list()),
                        min = min(year_list() - 1), max = max(year_list() + 1))

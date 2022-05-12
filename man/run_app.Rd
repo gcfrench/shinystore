@@ -39,11 +39,3 @@ See \code{?golem::get_golem_options} for more details.}
 \description{
 Run the Shiny Application
 }
-\details{
-\itemize{
-\item \href{https://shiny.rstudio.com/images/shiny-cheatsheet.pdf}{Shiny cheatsheet}
-\item \href{https://community.rstudio.com/c/shiny/8}{Shiny community}
-\item \href{https://github.com/nanxstats/awesome-shiny-extensions}{Awesome Shiny Extensions}
-\item \href{https://shiny.rstudio.com/gallery/}{Shiny gallery}
-}
-}

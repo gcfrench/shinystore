@@ -7,13 +7,14 @@
 #' * [Uploading files](https://shiny.rstudio.com/articles/upload.html) using fileInput control.
 #'
 #' @param id Internal parameter for {shiny}.
+#' @param dataset_name Name of dataset to upload.
 #'
 #' @importFrom shiny NS tagList
 #' @export
-mod_upload_ui <- function(id){
+mod_upload_ui <- function(id, dataset_name){
   ns <- NS(id)
   tagList(
-    fileInput(ns("upload"), "Upload data", accept = ".csv")
+    fileInput(ns("upload"), glue::glue_safe("Upload {dataset_name} data"), accept = ".csv")
   )
 }
 
@@ -44,7 +45,6 @@ mod_upload_server <- function(id, mod_values){
     observeEvent(upload_data(), {
       mod_values$upload_data <- upload_data()
     })
-
   })
 }
 
