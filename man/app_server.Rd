@@ -13,8 +13,8 @@ app_server(input, output, session)
 containing the following elements
 \itemize{
 \item 'upload_data' uploaded csv file as data frame.
-\item 'species_list' list of species in uploaded csv file.
-\item 'year_list' list of years in uploaded csv file.
+\item 'species_selected'' species select in selectInput input control.
+\item 'species_year' year selected in numericInput input control.
 }'filter_data' uploaded csv file filtered by species and year list.}
 }
 \description{

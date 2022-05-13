@@ -12,7 +12,7 @@ mod_filter_server(id, mod_values)
 \item{mod_values}{reactiveValues() list containing server module returned values}
 }
 \value{
-
+species_list(), year_list and filter_data() reactive value containing uploaded data from csv file.
 }
 \description{
 This shiny module uses the dataset returned from the upload module to populate

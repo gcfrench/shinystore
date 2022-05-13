@@ -1,3 +1,8 @@
-## code to prepare `lookup_raw` dataset goes here
+species_images <- tibble::tribble(
+  ~species, ~id, ~author,
+  "Chinstrap", "ZZyK8GjFJ4Q", "rocinante_11",
+  "Gentoo", "LAQ2QfYTpTY", "tamwarnerminton",
+  "Adelie", "9k9tNQTwMEA", "dylanshaw"
+)
 
-usethis::use_data(lookup_raw, overwrite = TRUE)
+usethis::use_data(species_images, overwrite = TRUE)

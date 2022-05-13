@@ -45,6 +45,13 @@ mod_upload_server <- function(id, mod_values){
     observeEvent(upload_data(), {
       mod_values$upload_data <- upload_data()
     })
+
+    # Notify module returning reactive values
+    observeEvent(mod_values$upload_data, {
+      id <- notify(glue::glue("upload module returned {nrow(isolate(mod_values$upload_data))} rows"))
+      on.exit(shiny::removeNotification(id), add = TRUE)
+      Sys.sleep(1.0)
+    })
   })
 }
 

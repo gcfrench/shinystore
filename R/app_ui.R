@@ -29,7 +29,9 @@ app_ui <- function(request) {
                  mod_upload_ui("upload_1", dataset_name = "penguin"),
                  mod_filter_ui("filter_1", dataset_name = "penguin")
     ),
-    mainPanel()
+    mainPanel(
+      mod_display_ui("display_1")
+    )
   )
 
   # UI layout

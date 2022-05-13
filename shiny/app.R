@@ -22,7 +22,6 @@ library(readr)
 ### https://shiny.rstudio.com/articles/sanitize-errors.html
 options(shiny.sanitize.errors = TRUE)
 
-# royalty-free stock photographs https://unsplash.com/
 species_images <- tribble(
   ~species, ~id, ~author,
   "Chinstrap", "ZZyK8GjFJ4Q", "rocinante_11",

@@ -4,6 +4,14 @@ template:
   bootswatch: flatly
 
 reference:
+- title: "Lookup tables"
+  desc: "Dataframes containing data table lookups"
+  contents:
+  - species_images
+- title: "Shiny utility functions"
+  desc: "Utility functions used by shiny"
+  contents:
+  - notify
 - title: "Upload shiny module"
   desc: "Shiny module for uploading CSV file"
   contents:

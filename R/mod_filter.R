@@ -16,7 +16,7 @@ mod_filter_ui <- function(id, dataset_name){
   ns <- NS(id)
   tagList(
     selectInput(ns("species_selected"), glue::glue_safe("Select a {dataset_name} species"), choices = NULL),
-    numericInput(ns("species_year"), "Select year", value = NULL, min = 0, max = 0),
+    numericInput(ns("species_year"), "Select year", value = NULL, min = 0, max = 0)
   )
 }
 
@@ -36,7 +36,7 @@ mod_filter_ui <- function(id, dataset_name){
 #'
 #' @inheritParams mod_upload_server
 #'
-#' @return
+#' @return species_list(), year_list and filter_data() reactive value containing uploaded data from csv file.
 #'
 #' @export
 mod_filter_server <- function(id, mod_values){
@@ -93,22 +93,37 @@ mod_filter_server <- function(id, mod_values){
       req(mod_values$upload_data)
       req(check_input$is_valid())
       mod_values$upload_data %>%
-        dplyr::filter(species == species_list(), year == year_list()) %>%
+        dplyr::filter(species == input$species_selected, year == input$species_year) %>%
         dplyr::select(-starts_with("bill"))
 
     })
 
     ## Return reactive values stored in mod_values reactiveValues --------------
-    observeEvent(species_list(), {
-      mod_values$species_list <- species_list()
+    observeEvent(input$species_selected, {
+        mod_values$species_selected <- input$species_selected
     })
 
-    observeEvent(year_list(), {
-      mod_values$species_list <- year_list()
+    observeEvent(input$species_year, {
+      mod_values$species_year <- input$species_year
     })
 
     observeEvent(filter_data(), {
-      mod_values$filter_data <- filter_data()
+      if(nrow(req(filter_data() != 0))) {
+        mod_values$filter_data <- filter_data()
+      }
+    })
+
+    # Notify module returning reactive values
+    observeEvent(mod_values$filter_data, {
+        id <- notify(glue::glue("filter module returned {nrow(isolate(mod_values$filter_data))} rows"))
+        on.exit(shiny::removeNotification(id), add = TRUE)
+        Sys.sleep(1.0)
+
+        notify(glue::glue("filter module returned {isolate(mod_values$species_selected)}"), id = id)
+        Sys.sleep(1.0)
+
+        notify(glue::glue("filter module returned {isolate(mod_values$species_year)}"), id = id)
+        Sys.sleep(1.0)
     })
   })
 }

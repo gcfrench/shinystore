@@ -33,3 +33,8 @@ of differing shiny functionality
 -   **filter module** dynamically populate input controls drop down
     options, applying validation to the input values using the
     [shinyvalidate]((https://rstudio.github.io/shinyvalidate)) package.
+-   **display module** displays the species image and link to original
+    species image.
+
+Shiny notification functionality is used in the modules to notify when a
+reactive values is returned from the module.
