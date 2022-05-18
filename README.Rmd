@@ -35,7 +35,13 @@ shiny functionality
 * **upload module** uploads a csv data file into the shiny app.
 * **filter module** dynamically populate input controls drop down options, 
 applying validation to the input values using the [shinyvalidate]((https://rstudio.github.io/shinyvalidate)) package.
-* **display module** displays the species image and link to original species image.
+* **display image module** displays the species image and link to original species image.
+* **display plot module** displays the species plot and table using the brush option functionality.
 
-Shiny notification functionality is used in the modules to notify when a reactive values is returned from the module.
+Shiny [notification](https://shiny.rstudio.com/articles/notifications.html) functionality is used in the modules to notify when a reactive values is returned from the module.
+
+# Publication
+
+The [example shiny app](https://gcfrench.shinyapps.io/shinystore) has been deployed on shinyapps.io.
+
 

@@ -1,15 +1,18 @@
 #' @title
-#' display UI Function
+#' display image UI Function
 #'
 #' @description
 #' Shiny module to display html text and image using htmlOutput and imageOutput
 #' controls.
 #'
+#' @details
+#' [Render images in a Shiny app](https://shiny.rstudio.com/articles/images.html)
+#'
 #' @param id Internal parameters for {shiny}.
 #'
 #' @importFrom shiny NS tagList
 #' @export
-mod_display_ui <- function(id){
+mod_display_image_ui <- function(id){
   ns <- NS(id)
   tagList(
     htmlOutput(ns("species_image_source")),
@@ -18,7 +21,7 @@ mod_display_ui <- function(id){
 }
 
 #' @title
-#' Shiny module display server function
+#' Shiny module display image server function
 #'
 #' @description
 #' This shiny module uses the filtered dataset and selected species from the filter
@@ -29,11 +32,10 @@ mod_display_ui <- function(id){
 #' * [Render images in a Shiny app](https://shiny.rstudio.com/articles/images.html)
 #'
 #' @export
-mod_display_server <- function(id, mod_values){
+mod_display_image_server <- function(id, mod_values){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
 
-    ## Image -------------------------------------------------------------------
     output$species_image_source <- renderUI({
       req(mod_values$species_selected)
       info <- shinystore::species_images %>%
@@ -56,7 +58,7 @@ mod_display_server <- function(id, mod_values){
 }
 
 ## To be copied in the UI
-# mod_display_ui("display_1")
+# mod_display_image_ui("display_image_1")
 
 ## To be copied in the server
-# mod_display_server("display_1")
+# mod_display_image_server("display_image_1")

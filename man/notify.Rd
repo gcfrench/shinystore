@@ -16,3 +16,8 @@ notify(msg, id = NULL, duration = NULL)
 \description{
 Function showing a notification message on the bottom right of the User Interface
 }
+\details{
+\itemize{
+\item \href{https://shiny.rstudio.com/articles/notifications.html}{Shiiny notifications}
+}
+}

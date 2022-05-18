@@ -22,6 +22,13 @@ reference:
   contents:
   - mod_filter_ui
   - mod_filter_server
+- title: "Display shiny module"
+  desc: "Shiny modules for displaying the dataset"
+  contents:
+  - mod_display_image_ui
+  - mod_display_image_server
+  - mod_display_plot_ui
+  - mod_display_plot_server
 - title: "Shiny user interface and server"
   desc: "Shiny application user interface and server"
   contents:

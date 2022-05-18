@@ -15,7 +15,8 @@ containing the following elements
 \item 'upload_data' uploaded csv file as data frame.
 \item 'species_selected'' species select in selectInput input control.
 \item 'species_year' year selected in numericInput input control.
-}'filter_data' uploaded csv file filtered by species and year list.}
+\item 'filter_data' uploaded csv file filtered by species and year list.
+}}
 }
 \description{
 The application server-side

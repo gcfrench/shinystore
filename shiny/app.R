@@ -72,17 +72,6 @@ ui_page_2 <- sidebarLayout(
   mainPanel(
     fluidRow(
       column(5,
-
-             ### plot input https://gallery.shinyapps.io/095-plot-interaction-advanced/
-             #### click = clickOpts(id = "plot_click", ...)
-             #### dblclick = dblClickOpts(id = "plot_dblclick", ...)
-             #### hover = hoverOpts(id = "plot_hover", ...)
-             #### brush = brushOpts(id = "plot_brush", ...)
-
-             # Progress and spinner bar
-             ## shiny withProgress: https://shiny.rstudio.com/articles/progress.html
-             ## waiter: https://github.com/JohnCoene/waiter
-             ## shinycssLoaders: https://github.com/daattali/shinycssloaders
              withSpinner(plotOutput("species_plot",
                                     brush = brushOpts(id = "plot_brush",
                                                       fill = "gold", stroke = "black",
@@ -260,7 +249,6 @@ server <- function(input, output, session) {
                               </p>"))
   })
 
-  ### https://shiny.rstudio.com/articles/images.html
   output$species_image <- renderImage({
 
     list(
@@ -278,7 +266,6 @@ server <- function(input, output, session) {
     input$species_selected
   })
 
-  ### https://plotly-r.com/
   output$species_plot <- renderPlot({
     ggplot(data = penguins_data(), aes(x = flipper_length_mm, y = body_mass_g)) +
       geom_point(size = 2, colour = "grey", alpha = 0.6) +
@@ -288,11 +275,7 @@ server <- function(input, output, session) {
       ggplot2::theme_bw()
   }, res = 96)
 
-  ### nearPoints: plot_click, plot_dblclick, plot_hover
-  ### brushedPoints: plot_brush
   output$species_plot_selected <- renderTable({
-
-    # Only proceed if input$plot_brush values are present
     req(input$plot_brush)
     brushedPoints(species_data_plot(), input$plot_brush)
   })

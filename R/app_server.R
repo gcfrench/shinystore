@@ -8,7 +8,7 @@
 #' * 'upload_data' uploaded csv file as data frame.
 #' * 'species_selected'' species select in selectInput input control.
 #' * 'species_year' year selected in numericInput input control.
-#' # 'filter_data' uploaded csv file filtered by species and year list.
+#' * 'filter_data' uploaded csv file filtered by species and year list.
 #'
 #' @import shiny
 #'
@@ -17,5 +17,6 @@ app_server <- function(input, output, session) {
   mod_values <- reactiveValues()
   mod_upload_server("upload_1", mod_values = mod_values)
   mod_filter_server("filter_1", mod_values = mod_values)
-  mod_display_server("display_1", mod_values = mod_values)
+  mod_display_image_server("display_image_1", mod_values = mod_values)
+  mod_display_plot_server("mod_display_plot_1", mod_values = mod_values)
 }

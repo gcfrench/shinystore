@@ -4,6 +4,9 @@
 #' @description
 #' Function showing a notification message on the bottom right of the User Interface
 #'
+#' @details
+#' * [Shiiny notifications](https://shiny.rstudio.com/articles/notifications.html)
+#'
 #' @param msg notification text message to be displayed
 #' @param id internal notification id
 #' @param duration duration of notification message in seconds.

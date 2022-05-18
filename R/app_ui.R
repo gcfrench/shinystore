@@ -27,10 +27,11 @@ app_ui <- function(request) {
   ui_page_1 <- sidebarLayout(
     sidebarPanel(width = 3,
                  mod_upload_ui("upload_1", dataset_name = "penguin"),
-                 mod_filter_ui("filter_1", dataset_name = "penguin")
+                 mod_filter_ui("filter_1", dataset_name = "penguin"),
+                 mod_display_image_ui("display_image_1")
     ),
     mainPanel(
-      mod_display_ui("display_1")
+      mod_display_plot_ui("mod_display_plot_1")
     )
   )
 
