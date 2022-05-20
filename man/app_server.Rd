@@ -16,6 +16,7 @@ containing the following elements
 \item 'species_selected'' species select in selectInput input control.
 \item 'species_year' year selected in numericInput input control.
 \item 'filter_data' uploaded csv file filtered by species and year list.
+\item 'display_plot' boolean permission to display plot
 }}
 }
 \description{

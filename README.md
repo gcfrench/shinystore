@@ -30,13 +30,14 @@ The shiny app contains a number of shiny modules, demonstrating the use
 of differing shiny functionality
 
 -   **upload module** uploads a csv data file into the shiny app.
--   **filter module** dynamically populate input controls drop down
+-   **filter module** dynamically populates input controls drop down
     options, applying validation to the input values using the
-    [shinyvalidate]((https://rstudio.github.io/shinyvalidate)) package.
+    [shinyvalidate]((https://rstudio.github.io/shinyvalidate)) package
+    and managing permission to display the filtered data.
 -   **display image module** displays the species image and link to
     original species image.
--   **display plot module** displays the species plot and table using
-    the brush option functionality.
+-   **display plot module** displays the species plot and select data
+    points using the brush option functionality.
 
 Shiny
 [notification](https://shiny.rstudio.com/articles/notifications.html)

@@ -21,6 +21,13 @@ mod_upload_ui <- function(id, dataset_name){
 #' @title
 #' Shiny module upload server function
 #'
+#' @description
+#' This shiny modules provides the upload control to
+#'
+#' * select csv file to upload.
+#' * upload and return data from csv file.
+#' * send notification of uploaded data.
+#'
 #' @details
 #' * [Reactive polling](https://shiny.rstudio.com/reference/shiny/latest/reactivePoll.html)
 #' * [Reactive file reader](https://shiny.rstudio.com/reference/shiny/latest/reactiveFileReader.html)

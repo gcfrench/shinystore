@@ -15,7 +15,12 @@ mod_upload_server(id, mod_values)
 upload_data() reactive value containing uploaded data from csv file.
 }
 \description{
-Shiny module upload server function
+This shiny modules provides the upload control to
+\itemize{
+\item select csv file to upload.
+\item upload and return data from csv file.
+\item send notification of uploaded data.
+}
 }
 \details{
 \itemize{

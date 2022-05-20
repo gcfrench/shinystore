@@ -7,8 +7,13 @@
 mod_display_plot_server(id, mod_values)
 }
 \description{
-This shiny module creates a plot of the filtered data on top of the upload data,
-displaying the selected points in a table using the brush option functionality.
+This shiny module creates and displays a plot of the filtered data on top of the upload data,
+\itemize{
+\item check validated filter data avaible and has permission to display plot.
+\item creates a plot of the filtered data on top of the upload data.
+\item displays the plot of the filtered data on top of the upload data.
+\item provides brush option displaying the selected data in a table.
+}
 }
 \details{
 \itemize{

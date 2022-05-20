@@ -25,8 +25,10 @@ mod_display_image_ui <- function(id){
 #'
 #' @description
 #' This shiny module uses the filtered dataset and selected species from the filter
-#' module to display an image of the penguin species with a html link to the original
-#' image.
+#' module to
+#'
+#' * display html link to the original image.
+#' * display an image of the penguin species.
 #'
 #' @details
 #' * [Render images in a Shiny app](https://shiny.rstudio.com/articles/images.html)

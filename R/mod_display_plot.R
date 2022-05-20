@@ -44,8 +44,12 @@ mod_display_plot_ui <- function(id){
 #' Shiny module display plot server function
 #'
 #' @description
-#' This shiny module creates a plot of the filtered data on top of the upload data,
-#' displaying the selected points in a table using the brush option functionality.
+#' This shiny module creates and displays a plot of the filtered data on top of the upload data,
+#'
+#' * check validated filter data avaible and has permission to display plot.
+#' * creates a plot of the filtered data on top of the upload data.
+#' * displays the plot of the filtered data on top of the upload data.
+#' * provides brush option displaying the selected data in a table.
 #'
 #' @details
 #' * [plotly](https://plotly-r.com/)
@@ -60,6 +64,7 @@ mod_display_plot_server <- function(id, mod_values){
     ns <- session$ns
 
     output$species_plot <- renderPlot({
+      req(mod_values$display_plot)
       req(mod_values$filter_data)
       ggplot2::ggplot(data = mod_values$upload_data, ggplot2::aes(x = flipper_length_mm, y = body_mass_g)) +
         ggplot2::geom_point(size = 2, colour = "grey", alpha = 0.6) +

@@ -1,8 +1,9 @@
 #' @title
-#' filter UI Function
+#' filter permission UI Function
 #'
 #' @description
-#' Shiny module to filter dataset using selectInput and numericInput controls.
+#' Shiny module to filter dataset using selectInput and numericInput controls and
+#' manage permissions to display data.
 #'
 #' @details
 #' * [Dynamic selectInput](https://shiny.rstudio.com/articles/selectize.html#server-side-selectize)
@@ -12,21 +13,27 @@
 #'
 #' @importFrom shiny NS tagList
 #' @export
-mod_filter_ui <- function(id, dataset_name){
+mod_filter_permission_ui <- function(id, dataset_name){
   ns <- NS(id)
   tagList(
     selectInput(ns("species_selected"), glue::glue_safe("Select a {dataset_name} species"), choices = NULL),
-    numericInput(ns("species_year"), "Select year", value = NULL, min = 0, max = 0)
+    numericInput(ns("species_year"), "Select year", value = NULL, min = 0, max = 0),
+    uiOutput(ns("permission_display"))
   )
 }
 
 #' @title
-#' Shiny module filter server function
+#' Shiny module filter permission server function
 #'
 #' @description
-#' This shiny module uses the dataset returned from the upload module to populate
-#' species and year drop down options in the input controls. After validating the
-#' input values it returns the dataset filtered on selected species and year.
+#' This shiny module uses the dataset returned from the upload module to
+#'
+#' * populate species and year drop down options in the input controls.
+#' * filter the dataset by the selected species and year in the drop down option.
+#' * validate the input control options and filtered dataset.
+#' * dynamically add buttons seeking permission to display plot and table of filtered data.
+#' (default, permission_required = TRUE), else skips this permission step (permission_required = FALSE),
+#' * send notification of returned reactive values.
 #'
 #' @details
 #' * [freezeReactiveValue](https://shiny.rstudio.com/reference/shiny/0.14/freezeReactiveValue.html) prevents flicker in dynamic controls
@@ -39,8 +46,8 @@ mod_filter_ui <- function(id, dataset_name){
 #' @return species_list(), year_list and filter_data() reactive value containing uploaded data from csv file.
 #'
 #' @export
-mod_filter_server <- function(id, mod_values){
-  moduleServer( id, function(input, output, session){
+mod_filter_permission_server <- function(id, mod_values, permission_required = TRUE){
+  moduleServer(id, function(input, output, session){
     ns <- session$ns
 
     ## Update input boxes ------------------------------------------------------
@@ -95,8 +102,27 @@ mod_filter_server <- function(id, mod_values){
       mod_values$upload_data %>%
         dplyr::filter(species == input$species_selected, year == input$species_year) %>%
         dplyr::select(-starts_with("bill"))
-
     })
+
+    ## Manage permissions to data ----------------------------------------------
+    ### Reset permissions on updating filtered data
+    observeEvent(filter_data(), {
+      if(permission_required) {
+        mod_values$display_plot <- FALSE
+      } else {
+        mod_values$display_plot <- TRUE
+      }
+    })
+
+    ## Display permission buttons
+    if(permission_required) {
+      output$permission_display <- renderUI ({
+        req(filter_data())
+        tagList(
+          actionButton(ns("display_plot"), "Display plot", class = "btn-sm btn-primary")
+        )
+      })
+    }
 
     ## Return reactive values stored in mod_values reactiveValues --------------
     observeEvent(input$species_selected, {
@@ -113,6 +139,15 @@ mod_filter_server <- function(id, mod_values){
       }
     })
 
+    observeEvent(input$display_plot, {
+      mod_values$display_plot <- TRUE
+
+      id <- notify(glue::glue("plot permission {isolate(mod_values$display_plot)}"))
+      on.exit(shiny::removeNotification(id), add = TRUE)
+      Sys.sleep(1.0)
+
+    })
+
     # Notify module returning reactive values
     observeEvent(mod_values$filter_data, {
         id <- notify(glue::glue("filter module returned {nrow(isolate(mod_values$filter_data))} rows"))
@@ -123,6 +158,9 @@ mod_filter_server <- function(id, mod_values){
         Sys.sleep(1.0)
 
         notify(glue::glue("filter module returned {isolate(mod_values$species_year)}"), id = id)
+        Sys.sleep(1.0)
+
+        notify(glue::glue("plot permission {isolate(mod_values$display_plot)}"), id = id)
         Sys.sleep(1.0)
     })
   })
