@@ -9,7 +9,8 @@ mod_display_plot_server(id, mod_values)
 \description{
 This shiny module creates and displays a plot of the filtered data on top of the upload data,
 \itemize{
-\item check validated filter data avaible and has permission to display plot.
+\item check validated filter data available and has permission to display plot.
+\item check for presence of example invalid values for plot.
 \item creates a plot of the filtered data on top of the upload data.
 \item displays the plot of the filtered data on top of the upload data.
 \item provides brush option displaying the selected data in a table.
@@ -17,6 +18,7 @@ This shiny module creates and displays a plot of the filtered data on top of the
 }
 \details{
 \itemize{
+\item \href{https://shiny.rstudio.com/reference/shiny/0.14/validate.html}{Validate input values}
 \item \href{https://plotly-r.com/}{plotly}
 \item \href{https://gallery.shinyapps.io/095-plot-interaction-advanced}{plot input}
 \itemize{

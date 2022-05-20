@@ -46,12 +46,14 @@ mod_display_plot_ui <- function(id){
 #' @description
 #' This shiny module creates and displays a plot of the filtered data on top of the upload data,
 #'
-#' * check validated filter data avaible and has permission to display plot.
+#' * check validated filter data available and has permission to display plot.
+#' * check for presence of example invalid values for plot.
 #' * creates a plot of the filtered data on top of the upload data.
 #' * displays the plot of the filtered data on top of the upload data.
 #' * provides brush option displaying the selected data in a table.
 #'
 #' @details
+#' * [Validate input values](https://shiny.rstudio.com/reference/shiny/0.14/validate.html)
 #' * [plotly](https://plotly-r.com/)
 #' * [plot input](https://gallery.shinyapps.io/095-plot-interaction-advanced)
 #'
@@ -64,8 +66,19 @@ mod_display_plot_server <- function(id, mod_values){
     ns <- session$ns
 
     output$species_plot <- renderPlot({
+
+      # check permission to display plot
       req(mod_values$display_plot)
+
+      # check filtered data ready
       req(mod_values$filter_data)
+
+      # check presence of example invalid values for plot
+      if(mod_values$species_selected == "Gentoo" && mod_values$species_year == 2008) {
+        validate("Unable to plot Gentoo measurements for 2008.")
+      }
+
+      # create plot
       ggplot2::ggplot(data = mod_values$upload_data, ggplot2::aes(x = flipper_length_mm, y = body_mass_g)) +
         ggplot2::geom_point(size = 2, colour = "grey", alpha = 0.6) +
         ggplot2::geom_point(data = mod_values$filter_data,
