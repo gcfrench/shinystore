@@ -7,14 +7,16 @@
 mod_display_table_server(id, mod_values)
 }
 \description{
-This shiny module displays a table of the filtered data,
+This shiny module displays and downloads a table of the filtered data,
 \itemize{
 \item check validated filter data available and has permission to display table.
 \item displays the table of the filtered data.
+\item add download button to download filtered data.
 }
 }
 \details{
 \itemize{
 \item \href{https://datatables.net/reference/option}{DataTables options}
+\item \href{https://shiny.rstudio.com/articles/generating-reports.html}{Parameterized reports}
 }
 }

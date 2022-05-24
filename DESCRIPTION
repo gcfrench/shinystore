@@ -19,6 +19,7 @@ Imports:
     glue,
     golem (>= 0.3.2),
     magrittr,
+    ragg,
     readr,
     shiny (>= 1.7.1),
     shinycssloaders,

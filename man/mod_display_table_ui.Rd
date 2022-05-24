@@ -10,7 +10,8 @@ mod_display_table_ui(id)
 \item{id}{Internal parameters for {shiny}.}
 }
 \description{
-Shiny module to display table using dataTableOutput control.
+Shiny module to display and download table using dataTableOutput and downloadHandler
+control.
 }
 \details{
 \itemize{

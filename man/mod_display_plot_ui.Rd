@@ -10,8 +10,8 @@ mod_display_plot_ui(id)
 \item{id}{Internal parameters for {shiny}.}
 }
 \description{
-Shiny module to display plot using plotOutput control and table from brush option
-using tableOutput control.
+Shiny module to display and save a plot using plotOutput and downloadHandler controls
+and table from brush option using tableOutput control.
 }
 \details{
 Progress and spinner bars

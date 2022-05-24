@@ -202,11 +202,8 @@ server <- function(input, output, session) {
 
   species_data_plot <- reactive({
 
-    ### Only proceed if input values are valid else pause reactivity
     req(check_input$is_valid())
 
-    ### Check combination of input values using shiny::validate
-    #### https://shiny.rstudio.com/reference/shiny/0.14/validate.html
     if(input$species_selected == "Gentoo" && input$species_year == 2008) {
       validate("Gentoo measurements for 2008 are not available")
     }
@@ -220,7 +217,6 @@ server <- function(input, output, session) {
   ## side effects reactivity: Notifications
   observeEvent(input$species_selected, {
 
-    # Only proceed if penguin data loaded
     req(penguins_data())
 
     id <- notify(str_glue("Getting {input$species_selected} penguin data"))
@@ -259,7 +255,6 @@ server <- function(input, output, session) {
 
   output$species_text <- renderText({
 
-    ### Only proceed if input values are valid
     req(check_input$is_valid())
 
     input$species_selected
@@ -290,15 +285,12 @@ server <- function(input, output, session) {
   ### side effect reactivity: Dialog Box
   observeEvent(input$display_button, {
 
-    ### DataTables options https://datatables.net/reference/option/
     output$species_table <- renderDataTable(
       species_data_table(), options= list(pageLength = 5)
     )
   })
 
   # Download data ----------------------------------------------------------------
-  #### Parameterized reports https://shiny.rstudio.com/articles/generating-reports.html
-
   ## Dynamically add download sidebarPanel to UI
   observeEvent(input$display_button, {
     output$download <- renderUI({

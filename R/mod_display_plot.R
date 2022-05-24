@@ -2,8 +2,8 @@
 #' display plot UI Function
 #'
 #' @description
-#' Shiny module to display plot using plotOutput control and table from brush option
-#' using tableOutput control.
+#' Shiny module to display and save a plot using plotOutput and downloadHandler controls
+#' and table from brush option using tableOutput control.
 #'
 #' @details
 #'
@@ -32,7 +32,8 @@ mod_display_plot_ui <- function(id){
                                                    brush = brushOpts(id = ns("plot_brush"),
                                                                      fill = "gold", stroke = "black",
                                                                      resetOnNew = TRUE),
-                                                   height = "350px"))
+                                                   height = "350px")),
+           uiOutput(ns("species_plot_save")),
     ),
     column(7,
            tableOutput(ns("species_plot_selected"))
@@ -44,13 +45,14 @@ mod_display_plot_ui <- function(id){
 #' Shiny module display plot server function
 #'
 #' @description
-#' This shiny module creates and displays a plot of the filtered data on top of the upload data,
+#' This shiny module creates, displays and saves a plot of the filtered data on top of the upload data,
 #'
 #' * check validated filter data available and has permission to display plot.
 #' * check for presence of example invalid values for plot.
 #' * creates a plot of the filtered data on top of the upload data.
 #' * displays the plot of the filtered data on top of the upload data.
 #' * provides brush option displaying the selected data in a table.
+#' * adds a save button to save the plot.
 #'
 #' @details
 #' * [Validate input values](https://shiny.rstudio.com/reference/shiny/0.14/validate.html)
@@ -65,18 +67,14 @@ mod_display_plot_server <- function(id, mod_values){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
 
-    output$species_plot <- renderPlot({
+    # check permission and create plot
+    plot <- reactive({
 
       # check permission to display plot
       req(mod_values$display_plot)
 
       # check filtered data ready
       req(mod_values$filter_data)
-
-      # check presence of example invalid values for plot
-      if(mod_values$species_selected == "Gentoo" && mod_values$species_year == 2008) {
-        validate("Unable to plot Gentoo measurements for 2008.")
-      }
 
       # create plot
       ggplot2::ggplot(data = mod_values$upload_data, ggplot2::aes(x = flipper_length_mm, y = body_mass_g)) +
@@ -85,13 +83,51 @@ mod_display_plot_server <- function(id, mod_values){
                             ggplot2::aes(x = flipper_length_mm, y = body_mass_g),
                             size = 2, colour = "steelblue") +
         ggplot2::theme_bw()
+    })
+
+    # display plot
+    output$species_plot <- renderPlot({
+
+      # check presence of example invalid values for plot
+      if(mod_values$species_selected == "Gentoo" && mod_values$species_year == 2008) {
+        validate("Unable to plot Gentoo measurements for 2008.")
+      }
+
+      plot()
     }, res = 96)
 
+    # display table of data for brushed points
     output$species_plot_selected <- renderTable({
       req(input$plot_brush)
       brushedPoints(mod_values$filter_data, input$plot_brush)
     })
 
+    # add save button
+    output$species_plot_save <- renderUI ({
+
+      # require created plot
+      plot()
+
+      # Add download button
+      downloadButton(ns("save_plot"), "Save plot",
+                     class = "btn-sm btn-primary")
+    })
+
+    # save plot
+    output$save_plot <- downloadHandler(
+      filename =  function() {
+        glue::glue("{mod_values$species_selected}_{mod_values$species_year}.png")
+      },
+      content = function(file) {
+        ggplot2::ggsave(filename = file,
+                        plot = plot(),
+                        device = ragg::agg_png,
+                        width = 6,
+                        height = 6,
+                        units = "in",
+                        dpi = 72)
+      }
+    )
   })
 }
 

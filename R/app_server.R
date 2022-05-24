@@ -6,7 +6,7 @@
 #' containing the following elements
 #'
 #' * 'upload_data' uploaded csv file as data frame.
-#' * 'species_selected'' species select in selectInput input control.
+#' * 'species_selected' species select in selectInput input control.
 #' * 'species_year' year selected in numericInput input control.
 #' * 'filter_data' uploaded csv file filtered by species and year list.
 #' * 'display_plot' boolean permission to display plot.
