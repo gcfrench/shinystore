@@ -38,6 +38,7 @@ applying validation to the input values using the [shinyvalidate]((https://rstud
 managing permission to display the filtered data.
 * **display image module** displays the species image and link to original species image.
 * **display plot module** displays the species plot and select data points using the brush option functionality.
+* **display table module** displays the species table.
 
 Shiny [notification](https://shiny.rstudio.com/articles/notifications.html) functionality is used in the modules to notify when a reactive values is returned from the module.
 

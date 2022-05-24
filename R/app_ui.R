@@ -31,7 +31,12 @@ app_ui <- function(request) {
                  mod_display_image_ui("display_image_1")
     ),
     mainPanel(
-      mod_display_plot_ui("mod_display_plot_1")
+      fluidRow(
+        mod_display_plot_ui("mod_display_plot_1"),
+      ),
+      fluidRow(
+        mod_display_table_ui("display_table_1")
+      )
     )
   )
 

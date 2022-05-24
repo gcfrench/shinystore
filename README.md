@@ -38,6 +38,7 @@ of differing shiny functionality
     original species image.
 -   **display plot module** displays the species plot and select data
     points using the brush option functionality.
+-   **display table module** displays the species table.
 
 Shiny
 [notification](https://shiny.rstudio.com/articles/notifications.html)

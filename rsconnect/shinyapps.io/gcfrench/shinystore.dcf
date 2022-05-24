@@ -5,7 +5,10 @@ account: gcfrench
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6278400
-bundleId: 5899374
+bundleId: 5926343
 url: https://gcfrench.shinyapps.io/shinystore/
-when: 1652367713.82392
-lastSyncTime: 1652367713.82392
+when: 1653039992.29707
+lastSyncTime: 1653039992.29707
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: shiny

@@ -18,7 +18,8 @@ mod_filter_permission_ui <- function(id, dataset_name){
   tagList(
     selectInput(ns("species_selected"), glue::glue_safe("Select a {dataset_name} species"), choices = NULL),
     numericInput(ns("species_year"), "Select year", value = NULL, min = 0, max = 0),
-    uiOutput(ns("permission_display"))
+    uiOutput(ns("permission_display")),
+    uiOutput(ns("permission_table"))
   )
 }
 
@@ -109,8 +110,10 @@ mod_filter_permission_server <- function(id, mod_values, permission_required = T
     observeEvent(filter_data(), {
       if(permission_required) {
         mod_values$display_plot <- FALSE
+        mod_values$display_table <- FALSE
       } else {
         mod_values$display_plot <- TRUE
+        mod_values$display_table <- TRUE
       }
     })
 
@@ -119,10 +122,26 @@ mod_filter_permission_server <- function(id, mod_values, permission_required = T
       output$permission_display <- renderUI ({
         req(filter_data())
         tagList(
-          actionButton(ns("display_plot"), "Display plot", class = "btn-sm btn-primary")
+          actionButton(ns("display_plot"), "Display plot",
+                       icon = icon("question"),
+                       class = "btn-sm btn-primary"),
+          actionButton(ns("display_table"), "Display table",
+                       icon = icon("question"),
+                       class = "btn-sm btn-primary")
         )
       })
     }
+
+    ### Add check icon to permission button clicking
+    observeEvent(input$display_plot, {
+      updateActionButton(inputId = "display_plot",
+                         icon = icon("check"))
+    })
+
+    observeEvent(input$display_table, {
+      updateActionButton(inputId = "display_table",
+                         icon = icon("check"))
+    })
 
     ## Return reactive values stored in mod_values reactiveValues --------------
     observeEvent(input$species_selected, {
@@ -144,7 +163,16 @@ mod_filter_permission_server <- function(id, mod_values, permission_required = T
 
       id <- notify(glue::glue("plot permission {isolate(mod_values$display_plot)}"))
       on.exit(shiny::removeNotification(id), add = TRUE)
-      Sys.sleep(1.0)
+      Sys.sleep(0.5)
+
+    })
+
+    observeEvent(input$display_table, {
+      mod_values$display_table <- TRUE
+
+      id <- notify(glue::glue("table permission {isolate(mod_values$display_table)}"))
+      on.exit(shiny::removeNotification(id), add = TRUE)
+      Sys.sleep(0.5)
 
     })
 
@@ -152,16 +180,19 @@ mod_filter_permission_server <- function(id, mod_values, permission_required = T
     observeEvent(mod_values$filter_data, {
         id <- notify(glue::glue("filter module returned {nrow(isolate(mod_values$filter_data))} rows"))
         on.exit(shiny::removeNotification(id), add = TRUE)
-        Sys.sleep(1.0)
+        Sys.sleep(0.5)
 
         notify(glue::glue("filter module returned {isolate(mod_values$species_selected)}"), id = id)
-        Sys.sleep(1.0)
+        Sys.sleep(0.5)
 
         notify(glue::glue("filter module returned {isolate(mod_values$species_year)}"), id = id)
-        Sys.sleep(1.0)
+        Sys.sleep(0.5)
 
         notify(glue::glue("plot permission {isolate(mod_values$display_plot)}"), id = id)
-        Sys.sleep(1.0)
+        Sys.sleep(0.5)
+
+        notify(glue::glue("table permission {isolate(mod_values$display_table)}"), id = id)
+        Sys.sleep(0.5)
     })
   })
 }

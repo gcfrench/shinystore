@@ -84,7 +84,6 @@ ui_page_2 <- sidebarLayout(
     ),
     fluidRow(
       column(12,
-             ### reactable tables https://glin.github.io/reactable/
              dataTableOutput("species_table")
       )
     )
