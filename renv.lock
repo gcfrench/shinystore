@@ -1093,14 +1093,22 @@
     },
     "shinystore": {
       "Package": "shinystore",
-      "Version": "0.0.0.9000",
+      "Version": "0.1.0",
       "Source": "unknown",
-      "Hash": "df70e8730e87acd601bf3dfe601427c6",
+      "Hash": "727cb42b710d8c45b1def00ea2544897",
       "Requirements": [
         "config",
+        "dplyr",
+        "fs",
+        "ggplot2",
+        "glue",
         "golem",
         "magrittr",
-        "shiny"
+        "ragg",
+        "readr",
+        "shiny",
+        "shinycssloaders",
+        "shinyvalidate"
       ]
     },
     "shinyvalidate": {

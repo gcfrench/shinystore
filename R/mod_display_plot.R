@@ -1,5 +1,5 @@
 #' @title
-#' display plot UI Function
+#' Shiny module display and download plot UI Function
 #'
 #' @description
 #' Shiny module to display and save a plot using plotOutput and downloadHandler controls
@@ -42,7 +42,7 @@ mod_display_plot_ui <- function(id){
 }
 
 #' @title
-#' Shiny module display plot server function
+#' Shiny module display and download plot server function
 #'
 #' @description
 #' This shiny module creates, displays and saves a plot of the filtered data on top of the upload data,

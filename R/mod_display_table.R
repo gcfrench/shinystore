@@ -1,5 +1,5 @@
 #' @title
-#' display table UI Function
+#' Shiny module display and download table UI Function
 #'
 #' @description
 #' Shiny module to display and download table using dataTableOutput and downloadHandler
@@ -21,7 +21,7 @@ mod_display_table_ui <- function(id){
 }
 
 #' @title
-#' Shiny module display table server function
+#' Shiny module display and download table server function
 #'
 #' @description
 #' This shiny module displays and downloads a table of the filtered data,

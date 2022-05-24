@@ -36,8 +36,8 @@ of differing shiny functionality
     and managing permission to display the filtered data.
 -   **display image module** displays the species image and link to
     original species image.
--   **display plot module** displays the species plot and select data
-    points using the brush option functionality.
+-   **display plot module** displays and download the species plot and
+    select data points using the brush option functionality.
 -   **display table module** displays and downloads the species table.
 
 Shiny
@@ -48,4 +48,5 @@ returned from the module.
 # Publication
 
 The [example shiny app](https://gcfrench.shinyapps.io/shinystore) has
-been deployed on shinyapps.io.
+been deployed on shinyapps.io, with the code on
+[github](https://github.com/gcfrench/shinystore)

@@ -2,7 +2,12 @@
 #' Run the Shiny Application
 #'
 #' @param ... arguments to pass to golem_opts.
+#'
+#' @details
 #' See `?golem::get_golem_options` for more details.
+#'
+#' * [sanitize errors](https://shiny.rstudio.com/articles/sanitize-errors.html)
+#'
 #' @inheritParams shiny::shinyApp
 #'
 #' @export
@@ -10,7 +15,7 @@
 #' @importFrom golem with_golem_options
 run_app <- function(
   onStart = NULL,
-  options = list(),
+  options = list(shiny.sanitize.errors = TRUE),
   enableBookmarking = NULL,
   uiPattern = "/",
   ...

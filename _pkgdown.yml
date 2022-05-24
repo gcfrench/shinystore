@@ -20,8 +20,8 @@ reference:
 - title: "Filter shiny module"
   desc: "Shiny module for applying filter to a dataset"
   contents:
-  - mod_filter_ui
-  - mod_filter_server
+  - mod_filter_permission_ui
+  - mod_filter_permission_server
 - title: "Display shiny module"
   desc: "Shiny modules for displaying the dataset"
   contents:
@@ -42,16 +42,8 @@ navbar:
   left:
     - icon: fa-home fa-lg
       href: index.html
-    - text: information
-      menu:
-      - text:
-        href:
     - text: "lookups and functions"
       href: reference/index.html
-    - text: "archive"
-      menu:
-      - text:
-        href:
     - text: "tasks"
       href: articles/tasks.html
     - text: "versions"

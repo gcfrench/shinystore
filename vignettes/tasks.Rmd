@@ -15,8 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-This **tasks** section contains a list of tasks and questions, with
-their current status
+This **tasks** section contains a list of tasks and questions, with their current status
 
 -   ✔️ completed
 -   ❗ awaiting completion
@@ -25,3 +24,12 @@ their current status
 
 ## Tasks and questions
 
+### 2022-05-04
+
+-   ❗ Read [Creating a Shiny App for Database Management](https://shanghai.hosting.nyu.edu/data/r/case-4-database-management-shiny.html) blog post
+
+-   ✖️Add bookmark button: Mastering Shiny page 180.
+
+-   ✖️Download a parameterized report: Mastering Shiny page 146.
+
+-   ✖️Colour selected plot points using brushed points: Mastering Shiny page 113.

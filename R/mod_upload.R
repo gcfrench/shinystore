@@ -1,5 +1,5 @@
 #' @title
-#' upload UI Function
+#' Shiny module upload UI Function
 #'
 #' @description Shiny module uploading csv file using fileInput control.
 #'

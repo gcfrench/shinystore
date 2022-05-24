@@ -1,5 +1,5 @@
 #' @title
-#' display image UI Function
+#' Shiny module display image UI Function
 #'
 #' @description
 #' Shiny module to display html text and image using htmlOutput and imageOutput

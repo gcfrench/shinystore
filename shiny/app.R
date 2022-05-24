@@ -12,14 +12,6 @@ library(tibble)
 library(fs)
 library(readr)
 
-# TO DO
-## Colour selected plot points: pg 113
-## Download a parameterized report: pg 146
-## Add reset button: pg 155
-## Add bookmark button: pg 180
-## https://shanghai.hosting.nyu.edu/data/r/case-4-database-management-shiny.html
-
-### https://shiny.rstudio.com/articles/sanitize-errors.html
 options(shiny.sanitize.errors = TRUE)
 
 species_images <- tribble(

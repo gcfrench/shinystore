@@ -1,5 +1,5 @@
 #' @title
-#' filter permission UI Function
+#' Shiny module filter permission UI Function
 #'
 #' @description
 #' Shiny module to filter dataset using selectInput and numericInput controls and
