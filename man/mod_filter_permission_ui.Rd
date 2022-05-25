@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_filter_permission.R
 \name{mod_filter_permission_ui}
 \alias{mod_filter_permission_ui}
-\title{filter permission UI Function}
+\title{Shiny module filter permission UI Function}
 \usage{
 mod_filter_permission_ui(id, dataset_name)
 }

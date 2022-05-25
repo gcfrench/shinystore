@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_display_table.R
 \name{mod_display_table_server}
 \alias{mod_display_table_server}
-\title{Shiny module display table server function}
+\title{Shiny module display and download table server function}
 \usage{
 mod_display_table_server(id, mod_values)
 }

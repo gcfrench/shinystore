@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_display_image.R
 \name{mod_display_image_ui}
 \alias{mod_display_image_ui}
-\title{display image UI Function}
+\title{Shiny module display image UI Function}
 \usage{
 mod_display_image_ui(id)
 }

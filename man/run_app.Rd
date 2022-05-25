@@ -6,7 +6,7 @@
 \usage{
 run_app(
   onStart = NULL,
-  options = list(),
+  options = list(shiny.sanitize.errors = TRUE),
   enableBookmarking = NULL,
   uiPattern = "/",
   ...
@@ -33,9 +33,16 @@ request to determine whether the \code{ui} should be used to handle the
 request. Note that the entire request path must match the regular
 expression in order for the match to be considered successful.}
 
-\item{...}{arguments to pass to golem_opts.
-See \code{?golem::get_golem_options} for more details.}
+\item{...}{arguments to pass to golem_opts.}
 }
 \description{
-Run the Shiny Application
+Function called to run the app, setting the golem options and running other
+generic functions.
+}
+\details{
+\itemize{
+\item \href{https://shiny.rstudio.com/articles/sanitize-errors.html}{sanitize errors}
+\item \href{https://rstudio.github.io/reactlog/}{reactlog}
+\item See \code{?golem::get_golem_options} for more details.
+}
 }

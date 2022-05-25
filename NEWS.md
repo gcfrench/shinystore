@@ -1,5 +1,6 @@
 # shinystore 0.1.0 <font size="4">2022-05-24</font>
 
+-   Enabled [reactlog](https://rstudio.github.io/reactlog/) in run_app function, available during running shiny app using **Ctrl-F3** or after running the shiny app using **shiny::reactlogShow()**.
 -   Added [sanitize errors](https://shiny.rstudio.com/articles/sanitize-errors.html) option to the run_app function.
 -   Added **table module** to display and download the filtered data as a data table. The user interface is also updated adding the download button dynamically.
 -   Added **plot module to** display a plot, a table of brushed points and download the plot image. The plot also has a [spinner](https://shiny.rstudio.com/articles/progress.html) progress indicator, applies further [validation](https://shiny.rstudio.com/reference/shiny/0.14/validate.html) to the data and update the user interface adding the save button dynamically.

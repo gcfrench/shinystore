@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_display_table.R
 \name{mod_display_table_ui}
 \alias{mod_display_table_ui}
-\title{display table UI Function}
+\title{Shiny module display and download table UI Function}
 \usage{
 mod_display_table_ui(id)
 }

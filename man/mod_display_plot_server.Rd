@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_display_plot.R
 \name{mod_display_plot_server}
 \alias{mod_display_plot_server}
-\title{Shiny module display plot server function}
+\title{Shiny module display and download plot server function}
 \usage{
 mod_display_plot_server(id, mod_values)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_display_plot.R
 \name{mod_display_plot_ui}
 \alias{mod_display_plot_ui}
-\title{display plot UI Function}
+\title{Shiny module display and download plot UI Function}
 \usage{
 mod_display_plot_ui(id)
 }

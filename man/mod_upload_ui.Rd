@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_upload.R
 \name{mod_upload_ui}
 \alias{mod_upload_ui}
-\title{upload UI Function}
+\title{Shiny module upload UI Function}
 \usage{
 mod_upload_ui(id, dataset_name)
 }

@@ -30,11 +30,6 @@ modal_confirm <- modalDialog(
     actionButton("ok", "Clear" , class = "btn-sm btn-primary")
   ))
 
-# reactlog
-### https://rstudio.github.io/reactlog/
-### Ctrl-F3 or shiny::reactlogShow()
-reactlog_enable()
-
 # read config file
 ### https://github.com/rstudio/config
 Sys.setenv(R_CONFIG_ACTIVE = "testing")
