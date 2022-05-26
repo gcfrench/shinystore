@@ -1,5 +1,6 @@
 # shinystore 0.1.0 <font size="4">2022-05-24</font>
 
+-   Added [modal dialog](http://shiny.rstudio-staging.com/articles/modal-dialogs.html) containing input controls to plot module.
 -   Enabled [reactlog](https://rstudio.github.io/reactlog/) in run_app function, available during running shiny app using **Ctrl-F3** or after running the shiny app using **shiny::reactlogShow()**.
 -   Added [sanitize errors](https://shiny.rstudio.com/articles/sanitize-errors.html) option to the run_app function.
 -   Added **table module** to display and download the filtered data as a data table. The user interface is also updated adding the download button dynamically.

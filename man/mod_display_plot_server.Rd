@@ -15,6 +15,7 @@ This shiny module creates, displays and saves a plot of the filtered data on top
 \item displays the plot of the filtered data on top of the upload data.
 \item provides brush option displaying the selected data in a table.
 \item adds a save button to save the plot.
+\item provides inputSlider controls to change save parameters of the plot image in a modal dialog.
 }
 }
 \details{

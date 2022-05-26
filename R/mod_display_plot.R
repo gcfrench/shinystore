@@ -3,7 +3,8 @@
 #'
 #' @description
 #' Shiny module to display and save a plot using plotOutput and downloadHandler controls
-#' and table from brush option using tableOutput control.
+#' and table from brush option using tableOutput control. Width and height of saved
+#' plot image can be altered using a sliderInput controls in a shiny modal form.
 #'
 #' @details
 #'
@@ -53,6 +54,7 @@ mod_display_plot_ui <- function(id){
 #' * displays the plot of the filtered data on top of the upload data.
 #' * provides brush option displaying the selected data in a table.
 #' * adds a save button to save the plot.
+#' * provides inputSlider controls to change save parameters of the plot image in a modal dialog.
 #'
 #' @details
 #' * [Validate input values](https://shiny.rstudio.com/reference/shiny/0.14/validate.html)
@@ -67,7 +69,7 @@ mod_display_plot_server <- function(id, mod_values){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
 
-    # check permission and create plot
+    # check permission and create plot -----------------------------------------
     plot <- reactive({
 
       # check permission to display plot
@@ -85,7 +87,7 @@ mod_display_plot_server <- function(id, mod_values){
         ggplot2::theme_bw()
     })
 
-    # display plot
+    # display plot -------------------------------------------------------------
     output$species_plot <- renderPlot({
 
       # check presence of example invalid values for plot
@@ -102,18 +104,53 @@ mod_display_plot_server <- function(id, mod_values){
       brushedPoints(mod_values$filter_data, input$plot_brush)
     })
 
-    # add save button
+    # add save button ----------------------------------------------------------
     output$species_plot_save <- renderUI ({
 
       # require created plot
       plot()
 
       # Add download button
-      downloadButton(ns("save_plot"), "Save plot",
-                     class = "btn-sm btn-primary")
+      actionButton(ns("save_plot_modal"), "Save plot",
+                   icon = icon("download"),
+                   class = "btn-sm btn-primary")
     })
 
-    # save plot
+    # modal form ---------------------------------------------------------------
+    modal_save <- modalDialog(
+
+      # title
+      title = "Width and height of plot image",
+
+      # body
+      sliderInput(ns("image_width"), "Width of plot image in inches", value = 6, min = 3, max = 12),
+      sliderInput(ns("image_height"), "Height of plot image in inches", value = 6, min = 3, max = 12),
+
+      # footer
+      footer = tagList(
+        downloadButton(ns("save_plot"), "Save plot",
+                       class = "btn-sm btn-primary"),
+        actionButton(ns("finish"), "Finish"),
+      )
+    )
+
+    observeEvent(input$save_plot_modal, {
+      showModal(modal_save)
+    })
+
+    observeEvent(input$image_width, {
+      mod_values$image_width <- input$image_width
+    })
+
+    observeEvent(input$image_height, {
+      mod_values$image_height <- input$image_height
+    })
+
+    observeEvent(input$finish, {
+      removeModal()
+    })
+
+    # save plot ----------------------------------------------------------------
     output$save_plot <- downloadHandler(
       filename =  function() {
         glue::glue("{mod_values$species_selected}_{mod_values$species_year}.png")
@@ -122,8 +159,8 @@ mod_display_plot_server <- function(id, mod_values){
         ggplot2::ggsave(filename = file,
                         plot = plot(),
                         device = ragg::agg_png,
-                        width = 6,
-                        height = 6,
+                        width = mod_values$image_width,
+                        height = mod_values$image_height,
                         units = "in",
                         dpi = 72)
       }

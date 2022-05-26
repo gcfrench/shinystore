@@ -11,7 +11,8 @@ mod_display_plot_ui(id)
 }
 \description{
 Shiny module to display and save a plot using plotOutput and downloadHandler controls
-and table from brush option using tableOutput control.
+and table from brush option using tableOutput control. Width and height of saved
+plot image can be altered using a sliderInput controls in a shiny modal form.
 }
 \details{
 Progress and spinner bars

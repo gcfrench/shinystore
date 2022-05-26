@@ -37,7 +37,9 @@ of differing shiny functionality
 -   **display image module** displays the species image and link to
     original species image.
 -   **display plot module** displays and download the species plot and
-    select data points using the brush option functionality.
+    select data points using the brush option functionality. Width and
+    height of the image can be altered using input controls in a modal
+    dialog.
 -   **display table module** displays and downloads the species table.
 
 Shiny
