@@ -330,12 +330,8 @@ server <- function(input, output, session) {
   })
 
   # Timed reactivity -------------------------------------------------------------
-  ### https://mastering-shiny.org/reactivity-objects.html
   secs <- reactiveVal(0)
 
-  ## Triggered reaction
-  ### https://shiny.rstudio.com/reference/shiny/0.14/invalidateLater.html
-  ### https://shiny.rstudio.com/reference/shiny/0.14/reactiveTimer.html
   observe({
     secs(isolate(secs()) + config$timer_seconds)
     invalidateLater(config$timer_seconds * 1000) # milliseconds

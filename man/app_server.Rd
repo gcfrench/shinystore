@@ -23,3 +23,12 @@ containing the following elements
 \description{
 The application server-side
 }
+\details{
+\itemize{
+\item \href{https://shiny.rstudio.com/articles/bookmarking-state.html}{bookmark state}
+\item \href{https://shiny.rstudio.com/articles/advanced-bookmarking.html}{advanced bookmarking}
+\item \href{https://github.com/rstudio/config}{config package}
+\item \href{https://shiny.rstudio.com/reference/shiny/0.14/invalidateLater.html}{Scheduled invalidation}
+\item \href{https://shiny.rstudio.com/reference/shiny/0.14/reactiveTimer.html}{Reactive timer}
+}
+}

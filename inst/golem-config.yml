@@ -4,5 +4,7 @@ default:
   app_prod: no
 production:
   app_prod: yes
+  timer_seconds: 4
 dev:
   golem_wd: C:/Files/packages/shinystore
+  timer_seconds: 2

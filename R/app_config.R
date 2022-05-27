@@ -28,7 +28,7 @@ get_golem_config <- function(
     "GOLEM_CONFIG_ACTIVE",
     Sys.getenv(
       "R_CONFIG_ACTIVE",
-      "default"
+      "dev"
     )
   ),
   use_parent = TRUE,
