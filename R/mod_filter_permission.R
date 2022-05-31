@@ -80,13 +80,13 @@ mod_filter_permission_server <- function(id, mod_values, permission_required = T
                          min = min(year_list() - 1), max = max(year_list() + 1))
     })
 
-    ## Validate input values ---------------------------------------------------
-    ### initiate validation
+    # Validate input values ---------------------------------------------------
+    ## initiate validation
     check_input <- shinyvalidate::InputValidator$new()
 
     ### Validation rules
-    check_input$add_rule("species_selected", shinyvalidate::sv_optional())
-    check_input$add_rule("species_year", shinyvalidate::sv_optional())
+    check_input$add_rule("species_selected", shinyvalidate::sv_required())
+    check_input$add_rule("species_year", shinyvalidate::sv_required())
     check_input$add_rule("species_year", shinyvalidate::sv_between(
       left = 2007,
       right = 2009,
@@ -98,8 +98,8 @@ mod_filter_permission_server <- function(id, mod_values, permission_required = T
 
     ## Update filter_data ------------------------------------------------------
     filter_data <- reactive({
-      req(mod_values$upload_data)
       req(check_input$is_valid())
+      req(mod_values$upload_data)
       mod_values$upload_data %>%
         dplyr::filter(species == input$species_selected, year == input$species_year) %>%
         dplyr::select(-starts_with("bill"))

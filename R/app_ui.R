@@ -28,8 +28,7 @@ app_ui <- function(request) {
     shinydashboard::dashboardSidebar(
       collapsed = FALSE,
       shinydashboard::sidebarMenu(
-        shinydashboard::menuItem("Upload", tabName = "upload", icon = icon("upload")),
-        shinydashboard::menuItem("Filter", tabName = "filter", icon = icon("filter")),
+        shinydashboard::menuItem("Data", tabName = "data", icon = icon("upload")),
         shinydashboard::menuItem("Image", tabName = "image", icon = icon("image")),
         shinydashboard::menuItem("Plot", tabName = "plot", icon = icon("chart-bar")),
         shinydashboard::menuItem("Table", tabName = "table",icon = icon("table"))
@@ -37,11 +36,10 @@ app_ui <- function(request) {
     ),
     shinydashboard::dashboardBody(
       shinydashboard::tabItems(
-        shinydashboard::tabItem(tabName = "upload", uiOutput("tab1UI")),
-        shinydashboard::tabItem(tabName = "filter", uiOutput("tab2UI")),
-        shinydashboard::tabItem(tabName = "image", uiOutput("tab3UI")),
-        shinydashboard::tabItem(tabName = "plot", uiOutput("tab4UI")),
-        shinydashboard::tabItem(tabName = "table", uiOutput("tab5UI"))
+        shinydashboard::tabItem(tabName = "data", uiOutput("tab1UI")),
+        shinydashboard::tabItem(tabName = "image", uiOutput("tab2UI")),
+        shinydashboard::tabItem(tabName = "plot", uiOutput("tab3UI")),
+        shinydashboard::tabItem(tabName = "table", uiOutput("tab4UI"))
       )
     )
   )

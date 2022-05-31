@@ -32,39 +32,26 @@ app_server <- function(input, output, session) {
   })
   onBookmarked(updateQueryString)
 
-  # server modules -------------------------------------------------------------
-  mod_values <- reactiveValues()
-  mod_upload_server("upload_1", mod_values = mod_values)
-  mod_filter_permission_server("filter_1", mod_values = mod_values)
-  mod_display_image_server("display_image_1", mod_values = mod_values)
-  mod_display_plot_server("mod_display_plot_1", mod_values = mod_values)
-  mod_display_table_server("display_table_1", mod_values = mod_values)
-
-
   # UI modules -----------------------------------------------------------------
   output$tab1UI <- renderUI({
     fluidPage(
       fluidRow(
         shinydashboard::box(width = 6, collapsible = TRUE, title = "Upload",
                             solidHeader = TRUE, status = "primary",
-          mod_upload_ui("upload_1", dataset_name = "penguin")
+                            mod_upload_ui("upload_1", dataset_name = "penguin")
+        )
+      ),
+      fluidRow(
+        shinydashboard::box(width = 6, collapsible = TRUE, title = "Filter",
+                            solidHeader = TRUE, status = "primary",
+                            mod_filter_permission_ui("filter_1", dataset_name = "penguin")
+
         )
       )
     )
   })
 
   output$tab2UI <- renderUI({
-    fluidPage(
-      fluidRow(
-        shinydashboard::box(width = 6, collapsible = TRUE, title = "Filter",
-                            solidHeader = TRUE, status = "primary",
-          mod_filter_permission_ui("filter_1", dataset_name = "penguin")
-        )
-      )
-    )
-  })
-
-  output$tab3UI <- renderUI({
     fluidPage(
       fluidRow(
         shinydashboard::box(width = 5, height = 750, collapsible = TRUE, title = "Image",
@@ -75,7 +62,7 @@ app_server <- function(input, output, session) {
     )
   })
 
-  output$tab4UI <- renderUI({
+  output$tab3UI <- renderUI({
     fluidPage(
       fluidRow(
         shinydashboard::box(width = 12, height = 750, collapsible = TRUE, title = "Plot",
@@ -86,7 +73,7 @@ app_server <- function(input, output, session) {
     )
   })
 
-  output$tab5UI <- renderUI({
+  output$tab4UI <- renderUI({
     fluidPage(
       fluidRow(
         shinydashboard::box(width = 12, height = 750, collapsible = TRUE, title = "Table",
@@ -96,6 +83,14 @@ app_server <- function(input, output, session) {
       )
     )
   })
+
+  # server modules -------------------------------------------------------------
+  mod_values <- reactiveValues()
+  mod_upload_server("upload_1", mod_values = mod_values)
+  mod_filter_permission_server("filter_1", mod_values = mod_values)
+  mod_display_image_server("display_image_1", mod_values = mod_values)
+  mod_display_plot_server("mod_display_plot_1", mod_values = mod_values)
+  mod_display_table_server("display_table_1", mod_values = mod_values)
 
   # timed reactivity -----------------------------------------------------------
   mod_values$timer_seconds <- 0
