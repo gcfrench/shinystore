@@ -54,7 +54,7 @@ mod_display_table_server <- function(id, mod_values){
 
     # display filtered data in table
     output$species_table <- renderDataTable(
-      table(), options= list(pageLength = 5)
+      table(), options= list(pageLength = 14)
     )
 
     # add download button

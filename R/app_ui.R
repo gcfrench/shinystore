@@ -11,7 +11,7 @@
 #' customizing Bootstrap themes.
 #' * [Bootswatch theme](https://bootswatch.com/) Free themes for bootstrap.
 #' * [Shiny layout](https://shiny.rstudio.com/articles/layout-guide.html)
-#' * [shinydashboard](http://rstudio.github.io/shinydashboard/get_started.html)
+#' * [shinydashboard](https://rstudio.github.io/shinydashboard/index.html)
 #' * [shinywidgets](https://github.com/dreamRs/shinyWidgets)
 #' * [sortable](https://rstudio.github.io/sortable/)
 #' * [colourpicker](https://github.com/daattali/colourpicker)
@@ -23,34 +23,25 @@
 #' @export
 app_ui <- function(request) {
 
-  # first page containing upload module
-  ui_page_1 <- sidebarLayout(
-    sidebarPanel(width = 3,
-                 mod_upload_ui("upload_1", dataset_name = "penguin"),
-                 mod_filter_permission_ui("filter_1", dataset_name = "penguin"),
-                 mod_display_image_ui("display_image_1")
-    ),
-    mainPanel(
-      fluidRow(
-        mod_display_plot_ui("mod_display_plot_1"),
-      ),
-      fluidRow(
-        mod_display_table_ui("display_table_1")
+  shinydashboard::dashboardPage(
+    shinydashboard::dashboardHeader(title = "Shiny app example"),
+    shinydashboard::dashboardSidebar(
+      collapsed = FALSE,
+      shinydashboard::sidebarMenu(
+        shinydashboard::menuItem("Upload", tabName = "upload", icon = icon("upload")),
+        shinydashboard::menuItem("Filter", tabName = "filter", icon = icon("filter")),
+        shinydashboard::menuItem("Image", tabName = "image", icon = icon("image")),
+        shinydashboard::menuItem("Plot", tabName = "plot", icon = icon("chart-bar")),
+        shinydashboard::menuItem("Table", tabName = "table",icon = icon("table"))
       )
-    )
-  )
-
-  # UI layout
-  tagList(
-    golem_add_external_resources(),
-    fluidPage(
-      h1(""),
-      tabsetPanel(
-        id = "wizard",
-        type = "hidden",
-        tabPanel("page_1",
-                 ui_page_1
-        )
+    ),
+    shinydashboard::dashboardBody(
+      shinydashboard::tabItems(
+        shinydashboard::tabItem(tabName = "upload", uiOutput("tab1UI")),
+        shinydashboard::tabItem(tabName = "filter", uiOutput("tab2UI")),
+        shinydashboard::tabItem(tabName = "image", uiOutput("tab3UI")),
+        shinydashboard::tabItem(tabName = "plot", uiOutput("tab4UI")),
+        shinydashboard::tabItem(tabName = "table", uiOutput("tab5UI"))
       )
     )
   )

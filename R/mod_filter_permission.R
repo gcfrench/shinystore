@@ -123,7 +123,7 @@ mod_filter_permission_server <- function(id, mod_values, permission_required = T
         req(filter_data())
         tagList(
           actionButton(ns("display_plot"), "Display plot",
-                       icon = icon("bar-chart-o"),
+                       icon = icon("chart-bar"),
                        class = "btn-sm btn-primary"),
           actionButton(ns("display_table"), "Display table",
                        icon = icon("table"),

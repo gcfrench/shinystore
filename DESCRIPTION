@@ -24,6 +24,7 @@ Imports:
     readr,
     shiny (>= 1.7.1),
     shinycssloaders,
+    shinydashboard,
     shinyvalidate
 Suggests: 
     knitr,

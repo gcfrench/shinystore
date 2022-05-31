@@ -33,7 +33,7 @@ mod_display_plot_ui <- function(id){
                                                    brush = brushOpts(id = ns("plot_brush"),
                                                                      fill = "gold", stroke = "black",
                                                                      resetOnNew = TRUE),
-                                                   height = "350px")),
+                                                   height = "500px")),
            uiOutput(ns("species_plot_save")),
     ),
     column(7,

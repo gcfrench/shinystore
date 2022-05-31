@@ -32,7 +32,7 @@ app_server <- function(input, output, session) {
   })
   onBookmarked(updateQueryString)
 
-  # modules
+  # server modules -------------------------------------------------------------
   mod_values <- reactiveValues()
   mod_upload_server("upload_1", mod_values = mod_values)
   mod_filter_permission_server("filter_1", mod_values = mod_values)
@@ -40,16 +40,69 @@ app_server <- function(input, output, session) {
   mod_display_plot_server("mod_display_plot_1", mod_values = mod_values)
   mod_display_table_server("display_table_1", mod_values = mod_values)
 
+
+  # UI modules -----------------------------------------------------------------
+  output$tab1UI <- renderUI({
+    fluidPage(
+      fluidRow(
+        shinydashboard::box(width = 6, collapsible = TRUE, title = "Upload",
+                            solidHeader = TRUE, status = "primary",
+          mod_upload_ui("upload_1", dataset_name = "penguin")
+        )
+      )
+    )
+  })
+
+  output$tab2UI <- renderUI({
+    fluidPage(
+      fluidRow(
+        shinydashboard::box(width = 6, collapsible = TRUE, title = "Filter",
+                            solidHeader = TRUE, status = "primary",
+          mod_filter_permission_ui("filter_1", dataset_name = "penguin")
+        )
+      )
+    )
+  })
+
+  output$tab3UI <- renderUI({
+    fluidPage(
+      fluidRow(
+        shinydashboard::box(width = 5, height = 750, collapsible = TRUE, title = "Image",
+                            solidHeader = TRUE, status = "primary",
+          mod_display_image_ui("display_image_1")
+        )
+      )
+    )
+  })
+
+  output$tab4UI <- renderUI({
+    fluidPage(
+      fluidRow(
+        shinydashboard::box(width = 12, height = 750, collapsible = TRUE, title = "Plot",
+                            solidHeader = TRUE, status = "primary",
+          mod_display_plot_ui("mod_display_plot_1")
+        )
+      )
+    )
+  })
+
+  output$tab5UI <- renderUI({
+    fluidPage(
+      fluidRow(
+        shinydashboard::box(width = 12, height = 750, collapsible = TRUE, title = "Table",
+                            solidHeader = TRUE, status = "primary",
+          mod_display_table_ui("display_table_1")
+        )
+      )
+    )
+  })
+
   # timed reactivity -----------------------------------------------------------
-  # Sys.setenv(R_CONFIG_ACTIVE = "testing")
-  # config <- config::get()
   mod_values$timer_seconds <- 0
 
   observe({
-    # mod_values$timer_seconds <- isolate(mod_values$timer_seconds) + config$timer_seconds
-    # invalidateLater(config$timer_seconds * 1000) # milliseconds
-    mod_values$timer_seconds <- isolate(mod_values$timer_seconds) + 4
-    invalidateLater(4 * 1000) # milliseconds
+    mod_values$timer_seconds <- isolate(mod_values$timer_seconds) + get_golem_config("timer_seconds")
+    invalidateLater(get_golem_config("timer_seconds") * 1000) # milliseconds
   })
 
   observeEvent(mod_values$timer_seconds,

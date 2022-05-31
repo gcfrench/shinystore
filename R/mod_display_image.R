@@ -15,8 +15,8 @@
 mod_display_image_ui <- function(id){
   ns <- NS(id)
   tagList(
-    htmlOutput(ns("species_image_source")),
-    imageOutput(ns("species_image"), height = "350px")
+    imageOutput(ns("species_image"), height = "634px"),
+    htmlOutput(ns("species_image_source"))
   )
 }
 
@@ -52,8 +52,8 @@ mod_display_image_server <- function(id, mod_values){
       req(mod_values$species_selected)
       list(
         src = fs::path("inst", "app", "www", glue::glue("{mod_values$species_selected}.jpg")),
-        width = 211,
-        height = 317
+        width = 422,
+        height = 634
       )
     }, deleteFile = FALSE)
   })
