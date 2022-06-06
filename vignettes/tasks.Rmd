@@ -24,9 +24,23 @@ This **tasks** section contains a list of tasks and questions, with their curren
 
 ## Tasks and questions
 
+### 2022-06-01
+
+Update [UI shinydashboard](https://rstudio.github.io/shinydashboard/structure.html)
+
+-   ❓Use messages, notifications and tasks in header menu.
+
+-   ❓Dynamically generate sidebar menus
+
+-   ❓Add background colour to box
+
+-   ❓Use tabBoxes
+
+-   ❓Add infoBoxes and valueBoxes
+
 ### 2022-05-04
 
--   ❗ Read [Creating a Shiny App for Database Management](https://shanghai.hosting.nyu.edu/data/r/case-4-database-management-shiny.html) blog post
+-   ✔️ Read [Creating a Shiny App for Database Management](https://shanghai.hosting.nyu.edu/data/r/case-4-database-management-shiny.html) blog post
 
 -   ✖️Add bookmark button: Mastering Shiny page 180.
 

@@ -1,5 +1,6 @@
 # shinystore 0.1.0 <font size="4">2022-05-24</font>
 
+-   Updated UI using [shinydashboard](https://rstudio.github.io/shinydashboard/index.html) with boxes.
 -   Added [bookmark](https://shiny.rstudio.com/articles/bookmarking-state.html) and [scheduled invalidation](https://shiny.rstudio.com/reference/shiny/0.14/invalidateLater.html) to app_server function.
 -   Added [modal dialog](http://shiny.rstudio-staging.com/articles/modal-dialogs.html) containing input controls to plot module.
 -   Enabled [reactlog](https://rstudio.github.io/reactlog/) in run_app function, available during running shiny app using **Ctrl-F3** or after running the shiny app using **shiny::reactlogShow()**.

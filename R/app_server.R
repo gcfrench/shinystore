@@ -96,8 +96,10 @@ app_server <- function(input, output, session) {
   mod_values$timer_seconds <- 0
 
   observe({
-    mod_values$timer_seconds <- isolate(mod_values$timer_seconds) + get_golem_config("timer_seconds")
-    invalidateLater(get_golem_config("timer_seconds") * 1000) # milliseconds
+    # mod_values$timer_seconds <- isolate(mod_values$timer_seconds) + get_golem_config("timer_seconds")
+    # invalidateLater(get_golem_config("timer_seconds") * 1000) # milliseconds
+    mod_values$timer_seconds <- isolate(mod_values$timer_seconds) + 4
+    invalidateLater(4 * 1000) # milliseconds
   })
 
   observeEvent(mod_values$timer_seconds,
