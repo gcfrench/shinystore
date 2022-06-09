@@ -19,9 +19,17 @@ the upload module.
 customizing Bootstrap themes.
 \item \href{https://bootswatch.com/}{Bootswatch theme} Free themes for bootstrap.
 \item \href{https://shiny.rstudio.com/articles/layout-guide.html}{Shiny layout}
-\item \href{http://rstudio.github.io/shinydashboard/get_started.html}{shinydashboard}
+\item \href{https://rstudio.github.io/shinydashboard/index.html}{shinydashboard}
 \item \href{https://github.com/dreamRs/shinyWidgets}{shinywidgets}
 \item \href{https://rstudio.github.io/sortable/}{sortable}
 \item \href{https://github.com/daattali/colourpicker}{colourpicker}
+}
+
+tests
+\itemize{
+\item \href{https://testthat.r-lib.org/index.html}{testthat}
+\item \href{https://testthat.r-lib.org/articles/snapshotting.html}{testthat snapshot tests}
+\item \href{https://shiny.rstudio.com/reference/shiny/1.5.0/testServer.html}{testServer}
+\item \href{https://rstudio.github.io/shinytest/}{shinytest}
 }
 }

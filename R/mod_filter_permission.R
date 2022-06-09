@@ -81,7 +81,7 @@ mod_filter_permission_server <- function(id, mod_values, permission_required = T
     })
 
     # Validate input values ---------------------------------------------------
-    ## initiate validation
+    # initiate validation
     check_input <- shinyvalidate::InputValidator$new()
 
     ### Validation rules
@@ -143,7 +143,7 @@ mod_filter_permission_server <- function(id, mod_values, permission_required = T
                          icon = icon("check"))
     })
 
-    ## Return reactive values stored in mod_values reactiveValues --------------
+    # Return reactive values stored in mod_values reactiveValues -------------- HERE
     observeEvent(input$species_selected, {
         mod_values$species_selected <- input$species_selected
     })

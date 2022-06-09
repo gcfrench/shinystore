@@ -16,6 +16,13 @@
 #' * [sortable](https://rstudio.github.io/sortable/)
 #' * [colourpicker](https://github.com/daattali/colourpicker)
 #'
+#' tests
+#'
+#' * [testthat](https://testthat.r-lib.org/index.html)
+#' * [testthat snapshot tests](https://testthat.r-lib.org/articles/snapshotting.html)
+#' * [testServer](https://shiny.rstudio.com/reference/shiny/1.5.0/testServer.html)
+#' * [shinytest](https://rstudio.github.io/shinytest/)
+#'
 #' @param request Internal parameter for `{shiny}`.
 #'
 #' @import shiny
@@ -29,7 +36,8 @@ app_ui <- function(request) {
       collapsed = FALSE,
       div("Modules", style = "padding: 10px"),
       shinydashboard::sidebarMenu(id = "module_sidebar",
-                                  shinydashboard::menuItem("Upload & Filter", tabName = "upload", icon = icon("upload")),
+                                  shinydashboard::menuItem("Upload", tabName = "upload", icon = icon("upload")),
+                                  shinydashboard::menuItem("Filter", tabName = "filter", icon = icon("filter")),
                                   shinydashboard::menuItem("Image", tabName = "image", icon = icon("image")),
                                   shinydashboard::menuItem("Plot", tabName = "plot", icon = icon("chart-bar")),
                                   shinydashboard::menuItem("Table", tabName = "table",icon = icon("table"))
@@ -47,9 +55,10 @@ app_ui <- function(request) {
     shinydashboard::dashboardBody(
       shinydashboard::tabItems(
         shinydashboard::tabItem(tabName = "upload", uiOutput("tab1UI")),
-        shinydashboard::tabItem(tabName = "image", uiOutput("tab2UI")),
-        shinydashboard::tabItem(tabName = "plot", uiOutput("tab3UI")),
-        shinydashboard::tabItem(tabName = "table", uiOutput("tab4UI"))
+        shinydashboard::tabItem(tabName = "filter", uiOutput("tab2UI")),
+        shinydashboard::tabItem(tabName = "image", uiOutput("tab3UI")),
+        shinydashboard::tabItem(tabName = "plot", uiOutput("tab4UI")),
+        shinydashboard::tabItem(tabName = "table", uiOutput("tab5UI"))
       )
     )
   )

@@ -24,6 +24,11 @@ This **tasks** section contains a list of tasks and questions, with their curren
 
 ## Tasks and questions
 
+### 2022-06-09
+
+-   ❗ Issue with UI filter drop-down boxes do not populate if filter menu has not been previously selected
+-   ❓setting observeEvent parameter ignoreInit or ignoreNULL to TRUE to ignore initial change in Event.
+
 ### 2022-06-01
 
 Update [UI shinydashboard](https://rstudio.github.io/shinydashboard/structure.html)
@@ -37,6 +42,8 @@ Update [UI shinydashboard](https://rstudio.github.io/shinydashboard/structure.ht
 -   ❓Use tabBoxes
 
 -   ❓Add infoBoxes and valueBoxes
+
+-   ❓Add custom css
 
 ### 2022-05-04
 

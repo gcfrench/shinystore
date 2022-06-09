@@ -110,6 +110,11 @@ mod_display_plot_server <- function(id, mod_values){
       # require created plot
       plot()
 
+      # check presence of example invalid values for plot
+      if(mod_values$species_selected == "Gentoo" && mod_values$species_year == 2008) {
+        validate("Unable to save Gentoo measurements for 2008.")
+      }
+
       # Add download button
       actionButton(ns("save_plot_modal"), "Save plot",
                    icon = icon("download"),
