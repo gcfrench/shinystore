@@ -45,4 +45,12 @@ generic functions.
 \item \href{https://rstudio.github.io/reactlog/}{reactlog}
 \item See \code{?golem::get_golem_options} for more details.
 }
+
+Performance
+\itemize{
+\item \href{https://rstudio.github.io/shinyloadtest/}{shinyloadtest}
+\item \href{https://rstudio.github.io/profvis/}{Profvis}
+\item \href{https://adv-r.hadley.nz/perf-improve.html}{Advanced R Improving Performance}
+\item \href{https://csgillespie.github.io/efficientR/}{Efficient R programming}
+}
 }

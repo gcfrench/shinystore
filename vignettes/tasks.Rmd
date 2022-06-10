@@ -24,6 +24,12 @@ This **tasks** section contains a list of tasks and questions, with their curren
 
 ## Tasks and questions
 
+### 2022-06-10
+
+-   Joe Chang RStudio 2019 talk [Shiny in production: Principles, practices, and tools](https://www.rstudio.com/resources/rstudioconf-2019/shiny-in-production-principles-practices-and-tools/) and [Scaling an app](https://rstudio.github.io/shinyloadtest/articles/case-study-scaling.html) case study
+
+-   Alan Dipert RStudio 2018 talk [Make Shiny Fast by Doing as Little Work as Possible](https://www.rstudio.com/resources/rstudioconf-2018/make-shiny-fast-by-doing-as-little-work-as-possible/)
+
 ### 2022-06-09
 
 -   ❗ Issue with UI filter drop-down boxes do not populate if filter menu has not been previously selected

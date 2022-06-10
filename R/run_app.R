@@ -10,6 +10,13 @@
 #' * [reactlog](https://rstudio.github.io/reactlog/)
 #' * See `?golem::get_golem_options` for more details.
 #'
+#' Performance
+#'
+#' * [shinyloadtest](https://rstudio.github.io/shinyloadtest/)
+#' * [Profvis](https://rstudio.github.io/profvis/)
+#' * [Advanced R Improving Performance](https://adv-r.hadley.nz/perf-improve.html)
+#' * [Efficient R programming](https://csgillespie.github.io/efficientR/)
+#'
 #' @param ... arguments to pass to golem_opts.
 #'
 #' @inheritParams shiny::shinyApp
