@@ -21,6 +21,10 @@
 #'     + hover = hoverOpts(id = "plot_hover", ...)
 #'     + brush = brushOpts(id = "plot_brush", ...)
 #'
+#' Caching
+#' * [Using caching in Shiny to maximize performance](https://shiny.rstudio.com/articles/caching.html)
+#' * [Using bindCache() to speed up an app](https://shiny.rstudio.com/app-stories/weather-lookup-caching.html)
+#'
 #' @param id Internal parameters for {shiny}.
 #'
 #' @importFrom shiny NS tagList
@@ -96,7 +100,8 @@ mod_display_plot_server <- function(id, mod_values){
       }
 
       plot()
-    }, res = 96)
+    }, res = 96) %>%
+      bindCache(plot())
 
     # display table of data for brushed points
     output$species_plot_selected <- renderTable({

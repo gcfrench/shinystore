@@ -32,4 +32,10 @@ Plots
 \item brush = brushOpts(id = "plot_brush", ...)
 }
 }
+
+Caching
+\itemize{
+\item \href{https://shiny.rstudio.com/articles/caching.html}{Using caching in Shiny to maximize performance}
+\item \href{https://shiny.rstudio.com/app-stories/weather-lookup-caching.html}{Using bindCache() to speed up an app}
+}
 }

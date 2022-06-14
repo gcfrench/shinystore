@@ -1,5 +1,6 @@
 # shinystore 0.1.0 <font size="4">2022-05-24</font>
 
+-   Added [caching](https://shiny.rstudio.com/articles/caching.html) to plot in plot module.
 -   Added testing link under details in app_ui, including links to [testthat](https://testthat.r-lib.org/index.html) to test non-reactive functions, [testthat snapshot tests](https://testthat.r-lib.org/articles/snapshotting.html) to test UI functions, [testServer](https://shiny.rstudio.com/reference/shiny/1.5.0/testServer.html) to test the server reactive functions and [shinytest package](https://rstudio.github.io/shinytest/) to test reactive functions using Javascript to update the UI browser.
 -   Updated UI using [shinydashboard](https://rstudio.github.io/shinydashboard/index.html) with boxes.
 -   Added [bookmark](https://shiny.rstudio.com/articles/bookmarking-state.html) and [scheduled invalidation](https://shiny.rstudio.com/reference/shiny/0.14/invalidateLater.html) to app_server function.
