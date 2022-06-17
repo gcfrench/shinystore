@@ -124,10 +124,10 @@ mod_filter_permission_server <- function(id, mod_values, permission_required = T
         tagList(
           actionButton(ns("display_plot"), "Display plot",
                        icon = icon("chart-bar"),
-                       class = "btn-sm btn-primary"),
+                       class = "btn-sm btn-success"),
           actionButton(ns("display_table"), "Display table",
                        icon = icon("table"),
-                       class = "btn-sm btn-primary")
+                       class = "btn-sm btn-success")
         )
       })
     }

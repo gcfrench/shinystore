@@ -37,7 +37,8 @@ mod_display_plot_ui <- function(id){
                                                    brush = brushOpts(id = ns("plot_brush"),
                                                                      fill = "gold", stroke = "black",
                                                                      resetOnNew = TRUE),
-                                                   height = "500px")),
+                                                   height = "500px"),
+                                        color = "#357f2e"),
            uiOutput(ns("species_plot_save")),
     ),
     column(7,
@@ -123,7 +124,7 @@ mod_display_plot_server <- function(id, mod_values){
       # Add download button
       actionButton(ns("save_plot_modal"), "Save plot",
                    icon = icon("download"),
-                   class = "btn-sm btn-primary")
+                   class = "btn-sm btn-success")
     })
 
     # modal form ---------------------------------------------------------------
@@ -139,8 +140,9 @@ mod_display_plot_server <- function(id, mod_values){
       # footer
       footer = tagList(
         downloadButton(ns("save_plot"), "Save plot",
-                       class = "btn-sm btn-primary"),
-        actionButton(ns("finish"), "Finish"),
+                       class = "btn-sm btn-success"),
+        actionButton(ns("finish"), "Finish",
+                     class = "btn-sm btn-success"),
       )
     )
 

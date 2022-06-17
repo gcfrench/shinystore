@@ -68,7 +68,7 @@ mod_display_table_server <- function(id, mod_values){
 
       # Add download button
       downloadButton(ns("download_table"), "Download table",
-                     class = "btn-sm btn-primary")
+                     class = "btn-sm btn-success")
     })
 
     # download filtered data

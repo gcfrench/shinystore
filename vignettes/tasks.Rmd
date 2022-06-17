@@ -24,11 +24,39 @@ This **tasks** section contains a list of tasks and questions, with their curren
 
 ## Tasks and questions
 
+### 2022-06-17
+
+-   ❓Change colour of fileInput control progress bar to green.
+
+-   ❓Change colour of input control sliders to green.
+
+-   ❓Change text colour of actionbuttons to white.
+
+-   ❓Change colour of datatable buttons to green.
+
+-   ❓Change notification background colour to green.
+
+### 2022-06-15
+
+Managing Fire Risk Tool
+
+-   ❓Information box and walk through instructions
+
+-   ❓Leaflet mapping control
+
+-   ❓Language control
+
+-   ❓Collapsible sections in sidebar
+
+CUU Habitat Change analysis
+
+-   ❓Shiny in R markdown
+
 ### 2022-06-10
 
--   Joe Chang RStudio 2019 talk [Shiny in production: Principles, practices, and tools](https://www.rstudio.com/resources/rstudioconf-2019/shiny-in-production-principles-practices-and-tools/) and [Scaling an app](https://rstudio.github.io/shinyloadtest/articles/case-study-scaling.html) case study
+-   ❓Joe Chang RStudio 2019 talk [Shiny in production: Principles, practices, and tools](https://www.rstudio.com/resources/rstudioconf-2019/shiny-in-production-principles-practices-and-tools/) and [Scaling an app](https://rstudio.github.io/shinyloadtest/articles/case-study-scaling.html) case study
 
--   Alan Dipert RStudio 2018 talk [Make Shiny Fast by Doing as Little Work as Possible](https://www.rstudio.com/resources/rstudioconf-2018/make-shiny-fast-by-doing-as-little-work-as-possible/)
+-   ❓Alan Dipert RStudio 2018 talk [Make Shiny Fast by Doing as Little Work as Possible](https://www.rstudio.com/resources/rstudioconf-2018/make-shiny-fast-by-doing-as-little-work-as-possible/)
 
 ### 2022-06-09
 

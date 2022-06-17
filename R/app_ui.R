@@ -30,7 +30,7 @@
 #' @export
 app_ui <- function(request) {
 
-  shinydashboard::dashboardPage(
+  shinydashboard::dashboardPage(skin = "green",
     shinydashboard::dashboardHeader(title = "Shiny app example"),
     shinydashboard::dashboardSidebar(
       collapsed = FALSE,

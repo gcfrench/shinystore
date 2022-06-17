@@ -37,7 +37,7 @@ app_server <- function(input, output, session) {
     fluidPage(
       fluidRow(
         shinydashboard::box(width = 6, collapsible = TRUE, title = "Upload",
-                            solidHeader = TRUE, status = "primary",
+                            solidHeader = TRUE, status = "success",
                             mod_upload_ui("upload_1", dataset_name = "penguin")
         )
       )
@@ -47,7 +47,7 @@ app_server <- function(input, output, session) {
   output$tab2UI <- renderUI({
     fluidRow(
       shinydashboard::box(width = 6, collapsible = TRUE, title = "Filter",
-                          solidHeader = TRUE, status = "primary",
+                          solidHeader = TRUE, status = "success",
                           mod_filter_permission_ui("filter_1", dataset_name = "penguin")
 
       )
@@ -58,7 +58,7 @@ app_server <- function(input, output, session) {
     fluidPage(
       fluidRow(
         shinydashboard::box(width = 5, height = 750, collapsible = TRUE, title = "Image",
-                            solidHeader = TRUE, status = "primary",
+                            solidHeader = TRUE, status = "success",
           mod_display_image_ui("display_image_1")
         )
       )
@@ -69,7 +69,7 @@ app_server <- function(input, output, session) {
     fluidPage(
       fluidRow(
         shinydashboard::box(width = 12, height = 750, collapsible = TRUE, title = "Plot",
-                            solidHeader = TRUE, status = "primary",
+                            solidHeader = TRUE, status = "success",
           mod_display_plot_ui("mod_display_plot_1")
         )
       )
@@ -80,7 +80,7 @@ app_server <- function(input, output, session) {
     fluidPage(
       fluidRow(
         shinydashboard::box(width = 12, height = 750, collapsible = TRUE, title = "Table",
-                            solidHeader = TRUE, status = "primary",
+                            solidHeader = TRUE, status = "success",
           mod_display_table_ui("display_table_1")
         )
       )
