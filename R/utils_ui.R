@@ -16,3 +16,17 @@ notify <- function(msg, id = NULL, duration = NULL) {
   shiny::showNotification(msg, id = id, duration = duration,
                           closeButton = FALSE, type = "message")
 }
+
+#' @title
+#' Shiny tour guide
+#'
+#' @description
+#' Tour of the shiny app
+#'
+#' @details
+#' * [Conductor](https://conductor.etiennebacher.com)
+#' * [rintrojs](https://github.com/carlganz/rintrojs)
+#' * [cicerone](https://cicerone.john-coene.com/index.html)
+#'
+#' @export
+tour_guide <- conductor::Conductor$new()

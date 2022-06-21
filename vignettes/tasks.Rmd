@@ -36,11 +36,11 @@ This **tasks** section contains a list of tasks and questions, with their curren
 
 -   ❓Change notification background colour to green.
 
+-   ❗ Issue with shiny tour guide not working with golem and shiny modules using conductor package.
+
 ### 2022-06-15
 
 Managing Fire Risk Tool
-
--   ❓Information box and walk through instructions
 
 -   ❓Leaflet mapping control
 

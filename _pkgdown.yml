@@ -12,6 +12,7 @@ reference:
   desc: "Utility functions used by shiny"
   contents:
   - notify
+  - tour_guide
 - title: "Upload shiny module"
   desc: "Shiny module for uploading CSV file"
   contents:

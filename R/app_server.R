@@ -95,6 +95,19 @@ app_server <- function(input, output, session) {
   mod_display_plot_server("mod_display_plot_1", mod_values = mod_values)
   mod_display_table_server("display_table_1", mod_values = mod_values)
 
+
+  # Shiny tour -----------------------------------------------------------------
+  tour_guide$step(
+    title = "Shiny tour guide",
+    text = "This is tour guide uses the conductor package."
+  )
+  tour_guide$init()
+
+  observeEvent(input$help, {
+    notify("Information button clicked", duration = 1)
+    tour_guide$start()
+  })
+
   # timed reactivity -----------------------------------------------------------
   mod_values$timer_seconds <- 0
 
@@ -107,4 +120,5 @@ app_server <- function(input, output, session) {
 
   observeEvent(mod_values$timer_seconds,
                notify(glue::glue("Running for {isolate(mod_values$timer_seconds)} seconds ..."), duration = 1))
+
 }

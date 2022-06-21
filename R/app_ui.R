@@ -30,8 +30,14 @@
 #' @export
 app_ui <- function(request) {
 
-  shinydashboard::dashboardPage(skin = "green",
-    shinydashboard::dashboardHeader(title = "Shiny app example"),
+  # Shiny tour
+  conductor::useConductor()
+
+  # Shiny dashboard
+  shinydashboard::dashboardPage(
+    skin = "green",
+    shinydashboard::dashboardHeader(title = "Shiny app example",
+                                    tags$li(actionLink("help", label = NULL, icon = shiny::icon("info-circle", class = "infoicon")), class = "dropdown")),
     shinydashboard::dashboardSidebar(
       collapsed = FALSE,
       div("Modules", style = "padding: 10px"),

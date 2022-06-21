@@ -42,6 +42,13 @@ mod_upload_server <- function(id, mod_values){
   moduleServer(id, function(input, output, session){
     ns <- session$ns
 
+    ## Shiny tour
+    tour_guide$step(
+      el = ns("upload"),
+      title = "Upload module",
+      text = "File input control."
+    )
+
     ## Reactive expression
     upload_data <- reactive({
       req(input$upload)
