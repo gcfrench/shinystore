@@ -30,14 +30,10 @@
 #' @export
 app_ui <- function(request) {
 
-  # Shiny tour
-  conductor::useConductor()
-
   # Shiny dashboard
   shinydashboard::dashboardPage(
     skin = "green",
-    shinydashboard::dashboardHeader(title = "Shiny app example",
-                                    tags$li(actionLink("help", label = NULL, icon = shiny::icon("info-circle", class = "infoicon")), class = "dropdown")),
+    shinydashboard::dashboardHeader(title = "Shiny app example"),
     shinydashboard::dashboardSidebar(
       collapsed = FALSE,
       div("Modules", style = "padding: 10px"),
@@ -46,7 +42,8 @@ app_ui <- function(request) {
                                   shinydashboard::menuItem("Filter", tabName = "filter", icon = icon("filter")),
                                   shinydashboard::menuItem("Image", tabName = "image", icon = icon("image")),
                                   shinydashboard::menuItem("Plot", tabName = "plot", icon = icon("chart-bar")),
-                                  shinydashboard::menuItem("Table", tabName = "table",icon = icon("table"))
+                                  shinydashboard::menuItem("Table", tabName = "table", icon = icon("table")),
+                                  shinydashboard::menuItem("Guide", tabName = "guide", icon = icon("info-circle"))
       ),
       div("Resources", style = "padding: 10px"),
       shinydashboard::sidebarMenu(id = "resource_sidebar",
@@ -64,7 +61,8 @@ app_ui <- function(request) {
         shinydashboard::tabItem(tabName = "filter", uiOutput("tab2UI")),
         shinydashboard::tabItem(tabName = "image", uiOutput("tab3UI")),
         shinydashboard::tabItem(tabName = "plot", uiOutput("tab4UI")),
-        shinydashboard::tabItem(tabName = "table", uiOutput("tab5UI"))
+        shinydashboard::tabItem(tabName = "table", uiOutput("tab5UI")),
+        shinydashboard::tabItem(tabName = "guide", uiOutput("tab6UI"))
       )
     )
   )
@@ -92,8 +90,9 @@ golem_add_external_resources <- function() {
     bundle_resources(
       path = app_sys("app/www"),
       app_title = "shinystore"
-    )
-    # Add here other external resources
-    # for example, you can add shinyalert::useShinyalert()
+    ),
+
+    # Shiny tour
+    cicerone::use_cicerone()
   )
 }

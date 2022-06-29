@@ -32,6 +32,11 @@ reference:
   - mod_display_plot_server
   - mod_display_table_ui
   - mod_display_table_server
+- title: "Tour guide shiny module"
+  desc: "Shiny module for creating a guide tour"
+  contents:
+  -  mod_tour_guide_ui
+  -  mod_tour_guide_server
 - title: "Shiny user interface and server"
   desc: "Shiny application user interface and server"
   contents:

@@ -87,6 +87,17 @@ app_server <- function(input, output, session) {
     )
   })
 
+  output$tab6UI <- renderUI({
+    fluidPage(
+      fluidRow(
+        shinydashboard::box(width = 12, height = 750, collapsible = TRUE, title = "Guide",
+                            solidHeader = TRUE, status = "success",
+          mod_tour_guide_ui("tour_guide_1")
+        )
+      )
+    )
+  })
+
   # server modules -------------------------------------------------------------
   mod_values <- reactiveValues()
   mod_upload_server("upload_1", mod_values = mod_values)
@@ -94,19 +105,7 @@ app_server <- function(input, output, session) {
   mod_display_image_server("display_image_1", mod_values = mod_values)
   mod_display_plot_server("mod_display_plot_1", mod_values = mod_values)
   mod_display_table_server("display_table_1", mod_values = mod_values)
-
-
-  # Shiny tour -----------------------------------------------------------------
-  tour_guide$step(
-    title = "Shiny tour guide",
-    text = "This is tour guide uses the conductor package."
-  )
-  tour_guide$init()
-
-  observeEvent(input$help, {
-    notify("Information button clicked", duration = 1)
-    tour_guide$start()
-  })
+  mod_tour_guide_server("tour_guide_1", mod_values = mod_values)
 
   # timed reactivity -----------------------------------------------------------
   mod_values$timer_seconds <- 0
