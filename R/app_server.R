@@ -87,16 +87,6 @@ app_server <- function(input, output, session) {
     )
   })
 
-  output$tab6UI <- renderUI({
-    fluidPage(
-      fluidRow(
-        shinydashboard::box(width = 12, height = 750, collapsible = TRUE, title = "Guide",
-                            solidHeader = TRUE, status = "success",
-          mod_tour_guide_ui("tour_guide_1")
-        )
-      )
-    )
-  })
 
   # server modules -------------------------------------------------------------
   mod_values <- reactiveValues()

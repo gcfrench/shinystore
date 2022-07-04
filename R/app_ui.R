@@ -42,8 +42,10 @@ app_ui <- function(request) {
                                   shinydashboard::menuItem("Filter", tabName = "filter", icon = icon("filter")),
                                   shinydashboard::menuItem("Image", tabName = "image", icon = icon("image")),
                                   shinydashboard::menuItem("Plot", tabName = "plot", icon = icon("chart-bar")),
-                                  shinydashboard::menuItem("Table", tabName = "table", icon = icon("table")),
-                                  shinydashboard::menuItem("Guide", tabName = "guide", icon = icon("info-circle"))
+                                  shinydashboard::menuItem("Table", tabName = "table", icon = icon("table"))
+      ),
+      div("Tour guide", style = "padding: 10px"),
+      shinydashboard::sidebarMenu(id = "tour_guide_sidebar", mod_tour_guide_ui("tour_guide_1")
       ),
       div("Resources", style = "padding: 10px"),
       shinydashboard::sidebarMenu(id = "resource_sidebar",
@@ -61,8 +63,7 @@ app_ui <- function(request) {
         shinydashboard::tabItem(tabName = "filter", uiOutput("tab2UI")),
         shinydashboard::tabItem(tabName = "image", uiOutput("tab3UI")),
         shinydashboard::tabItem(tabName = "plot", uiOutput("tab4UI")),
-        shinydashboard::tabItem(tabName = "table", uiOutput("tab5UI")),
-        shinydashboard::tabItem(tabName = "guide", uiOutput("tab6UI"))
+        shinydashboard::tabItem(tabName = "table", uiOutput("tab5UI"))
       )
     )
   )
