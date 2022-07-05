@@ -41,6 +41,8 @@ of differing shiny functionality
     height of the image can be altered using input controls in a modal
     dialog.
 -   **display table module** displays and downloads the species table.
+-   **tour guide module** displays a guided tour of input and output
+    controls used in the shiny app.
 
 Shiny
 [notification](https://shiny.rstudio.com/articles/notifications.html)

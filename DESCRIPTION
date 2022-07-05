@@ -20,6 +20,7 @@ Imports:
     glue,
     golem (>= 0.3.2),
     magrittr,
+    purrr,
     ragg,
     reactlog,
     readr,

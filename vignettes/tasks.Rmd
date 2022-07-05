@@ -36,7 +36,7 @@ This **tasks** section contains a list of tasks and questions, with their curren
 
 -   ❓Change notification background colour to green.
 
--   ❗ Issue with shiny tour guide not working with golem and shiny modules using conductor package.
+-   ❗Use shiny tour guide in multi-tabbed shiny dashboard, shiny modules and golem. [Cicerone not working with shinydashboard multitabs](https://github.com/JohnCoene/cicerone/issues/21)
 
 ### 2022-06-15
 

@@ -52,13 +52,13 @@ mod_tour_guide_server <- function(id, mod_values){
         )
       purrr::pmap(
         data.frame(
-          ids = c(
+          el = c(
             ns("upload")
           ),
-          titles = c(
+          title = c(
             "Upload module"
           ),
-          texts = c(
+          description = c(
             "File input control."
           )
         ), ~ {
@@ -70,6 +70,9 @@ mod_tour_guide_server <- function(id, mod_values){
       tour_guide$
         init()$
         start()
+
+      # notification message
+      notify("Guide not currently working ", duration = 1)
 
     })
   })
